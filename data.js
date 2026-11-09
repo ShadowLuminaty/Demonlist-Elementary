@@ -23,6 +23,7 @@ const LEVELS = [
     id: "40945673",
     video: "https://www.youtube.com/watch?v=Kk1OtWcCLsA",
     records: [
+      { player: "Xxsvn", video: "", date: "2026-11-09" }
     ]
   },
   {
