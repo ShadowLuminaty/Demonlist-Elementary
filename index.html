@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demonlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#15112e; --card:#201a45; --line:#372e70; --text:#efeaff; --mute:#a79fd1;
+  --accent:#ff8a1f; --gold:#ffd23f; --r:14px;
+  --display:"Lilita One","Arial Rounded MT Bold",Impact,sans-serif;
+  --body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.5 var(--body)}
+a{color:var(--gold)}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px 60px}
+header{padding:56px 0 8px}
+h1{font:400 clamp(2.4rem,8vw,4.2rem)/1 var(--display);margin:0;letter-spacing:.01em}
+.sub{color:var(--mute);margin:12px 0 0;max-width:52ch}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:28px 0 18px}
+.bar button{font:800 1rem var(--body);background:var(--card);color:var(--text);border:2px solid var(--line);border-radius:999px;padding:8px 20px;cursor:pointer}
+.bar button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#1a1033}
+.bar input{flex:1;min-width:160px;font:400 1rem var(--body);background:var(--card);color:var(--text);border:2px solid var(--line);border-radius:999px;padding:8px 18px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.item{background:var(--card);border:2px solid var(--line);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+.item[open]{border-color:var(--accent)}
+summary{list-style:none;display:grid;grid-template-columns:76px 168px 1fr auto;align-items:center;gap:16px;padding:10px 18px 10px 10px;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+.players summary{grid-template-columns:76px 1fr auto}
+.rank{font:400 3.2rem/1 var(--display);text-align:center;color:transparent;-webkit-text-stroke:2px var(--accent)}
+.top .rank{color:var(--accent);-webkit-text-stroke:0}
+.thumb{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;background:linear-gradient(135deg,#3b2f86,#ff8a1f)}
+.name{font-weight:800;font-size:1.15rem}
+.mute{color:var(--mute);font-size:.95rem}
+.pts{font:400 1.3rem var(--display);color:var(--gold);white-space:nowrap}
+.detail{padding:6px 20px 18px;border-top:2px solid var(--line)}
+.detail h3{font:400 1.2rem var(--display);margin:16px 0 6px}
+.detail ul{margin:0;padding-left:20px}
+.detail li{margin:3px 0}
+.empty{color:var(--mute);padding:24px 0}
+footer{margin-top:40px;color:var(--mute);font-size:.95rem}
+@media (max-width:620px){
+  summary{grid-template-columns:56px 1fr auto}
+  .thumb{display:none}
+  .rank{font-size:2.4rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </header>
+
+  <div class="bar">
+    <button id="tab-liste" aria-pressed="true">Niveaux</button>
+    <button id="tab-joueurs" aria-pressed="false">Joueurs</button>
+    <input id="search" type="search" placeholder="Chercher un niveau ou un joueur" aria-label="Rechercher">
+  </div>
+
+  <main id="out"></main>
+
+  <footer>
+    Tu as battu un niveau de la liste ? <a id="discord" href="#" target="_blank" rel="noopener">Envoie ta preuve sur le Discord</a>.
+  </footer>
+</div>
+
+<script src="data.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pts = rank => Math.round(SITE.maxPoints * Math.pow(SITE.decay, rank - 1));
+const ytId = u => { const m = /(?:youtu\.be\/|v=|embed\/)([\w-]{11})/.exec(u || ""); return m ? m[1] : null; };
+const safeUrl = u => /^https?:\/\//.test(u || "") ? u : "";
+const link = (u, label) => safeUrl(u) ? `<a href="${esc(u)}" target="_blank" rel="noopener">${label}</a>` : "";
+
+let tab = location.hash === "#joueurs" ? "joueurs" : "liste";
+
+// Calcule le classement des joueurs à partir des niveaux
+function computePlayers() {
+  const map = {};
+  const get = n => map[n] || (map[n] = { name: n, points: 0, verified: [], beaten: [] });
+  LEVELS.forEach((l, i) => {
+    const rank = i + 1, p = pts(rank);
+    if (l.verifier) { const pl = get(l.verifier); pl.points += p; pl.verified.push({ l, rank, p }); }
+    (l.records || []).forEach(r => {
+      if (r.player === l.verifier) return; // pas de double comptage
+      const pl = get(r.player); pl.points += p; pl.beaten.push({ l, rank, p, r });
+    });
+  });
+  return Object.values(map).sort((a, b) => b.points - a.points);
+}
+
+function levelHTML(l, i) {
+  const rank = i + 1, id = ytId(l.video);
+  const thumb = id
+    ? `<img class="thumb" loading="lazy" alt="" src="https://img.youtube.com/vi/${id}/mqdefault.jpg">`
+    : `<div class="thumb"></div>`;
+  const recs = (l.records || []).map(r =>
+    `<li>${esc(r.player)} <span class="mute">${esc(r.date || "")}</span> ${link(r.video, "vidéo")}</li>`).join("");
+  return `<details class="item ${rank <= 3 ? "top" : ""}">
+    <summary>
+      <span class="rank">${rank}</span>${thumb}
+      <span><span class="name">${esc(l.name)}</span><br><span class="mute">par ${esc(l.creator)}</span></span>
+      <span class="pts">${pts(rank)} pts</span>
+    </summary>
+    <div class="detail">
+      <h3>Informations</h3>
+      <ul>
+        <li>Créateur : ${esc(l.creator)}</li>
+        <li>Vérifié par : ${esc(l.verifier)} ${link(l.video, "vidéo de la vérification")}</li>
+        <li>ID du niveau : ${esc(l.id)}</li>
+      </ul>
+      <h3>Records (${(l.records || []).length})</h3>
+      ${recs ? `<ul>${recs}</ul>` : `<p class="mute">Personne n’a encore battu ce niveau.</p>`}
+    </div>
+  </details>`;
+}
+
+function playerHTML(p, i) {
+  const rank = i + 1;
+  const row = x => `<li>#${x.rank} ${esc(x.l.name)} <span class="mute">+${x.p} pts</span> ${x.r ? link(x.r.video, "vidéo") : ""}</li>`;
+  return `<details class="item ${rank <= 3 ? "top" : ""}">
+    <summary>
+      <span class="rank">${rank}</span>
+      <span class="name">${esc(p.name)}</span>
+      <span class="pts">${p.points} pts</span>
+    </summary>
+    <div class="detail">
+      <h3>Niveaux vérifiés (${p.verified.length})</h3>
+      ${p.verified.length ? `<ul>${p.verified.map(row).join("")}</ul>` : `<p class="mute">Aucun.</p>`}
+      <h3>Niveaux battus (${p.beaten.length})</h3>
+      ${p.beaten.length ? `<ul>${p.beaten.map(row).join("")}</ul>` : `<p class="mute">Aucun.</p>`}
+    </div>
+  </details>`;
+}
+
+function render() {
+  const q = $("#search").value.trim().toLowerCase();
+  let html = "";
+  if (tab === "liste") {
+    html = LEVELS.map((l, i) => [l, i])
+      .filter(([l]) => !q || [l.name, l.creator, l.verifier].some(s => String(s).toLowerCase().includes(q)))
+      .map(([l, i]) => levelHTML(l, i)).join("");
+  } else {
+    html = computePlayers().map((p, i) => [p, i])
+      .filter(([p]) => !q || p.name.toLowerCase().includes(q))
+      .map(([p, i]) => playerHTML(p, i)).join("");
+  }
+  $("#out").innerHTML = `<div class="${tab === "joueurs" ? "players" : ""}">${html || `<p class="empty">Aucun résultat.</p>`}</div>`;
+  $("#tab-liste").setAttribute("aria-pressed", tab === "liste");
+  $("#tab-joueurs").setAttribute("aria-pressed", tab === "joueurs");
+}
+
+$("#title").textContent = SITE.title;
+$("#subtitle").textContent = SITE.subtitle;
+document.title = SITE.title;
+$("#discord").href = safeUrl(SITE.discord) || "#";
+$("#tab-liste").onclick = () => { tab = "liste"; location.hash = "liste"; render(); };
+$("#tab-joueurs").onclick = () => { tab = "joueurs"; location.hash = "joueurs"; render(); };
+$("#search").oninput = render;
+render();
+</script>
+</body>
+</html>
