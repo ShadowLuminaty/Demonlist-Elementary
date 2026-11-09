@@ -32,7 +32,8 @@ h1{font:400 clamp(2.4rem,8vw,4.2rem)/1 var(--display);margin:0;letter-spacing:.0
 summary{list-style:none;display:grid;grid-template-columns:76px 168px 1fr auto;align-items:center;gap:16px;padding:10px 18px 10px 10px;cursor:pointer}
 summary::-webkit-details-marker{display:none}
 .players summary{grid-template-columns:76px 1fr auto}
-.upc summary{grid-template-columns:1fr auto;padding:16px 18px}
+.upc summary{grid-template-columns:168px 1fr auto;padding:10px 18px 10px 10px}
+.cover{display:block;width:100%;max-width:480px;border-radius:8px;margin-top:14px}
 .upc .pts{font-size:1.05rem;color:var(--accent)}
 .rank{font:400 3.2rem/1 var(--display);text-align:center;color:transparent;-webkit-text-stroke:2px var(--accent)}
 .top .rank{color:var(--accent);-webkit-text-stroke:0}
@@ -50,6 +51,7 @@ footer{margin-top:40px;color:var(--mute);font-size:.95rem}
   summary{grid-template-columns:56px 1fr auto}
   .thumb{display:none}
   .rank{font-size:2.4rem}
+  .upc summary{grid-template-columns:1fr auto}
 }
 </style>
 </head>
@@ -147,20 +149,28 @@ function playerHTML(p, i) {
   </details>`;
 }
 
+const imgSrc = s => /^(https?:\/\/|[\w\-.\/]+$)/.test(s || "") ? s : "";
+
 function upcomingHTML(u) {
+  const img = imgSrc(u.image);
+  const thumb = img
+    ? `<img class="thumb" loading="lazy" alt="" src="${esc(img)}">`
+    : `<div class="thumb"></div>`;
   const runs = [...(u.bestRuns || [])].sort((a, b) => b.percent - a.percent);
   const list = runs.map(r =>
     `<li><strong>${esc(r.percent)}%</strong> : ${esc(r.player)} ${link(r.video, "vidéo")}</li>`).join("");
   return `<details class="item">
     <summary>
+      ${thumb}
       <span><span class="name">${esc(u.name)}</span><br><span class="mute">par ${esc(u.creator)}, vérifié par ${esc(u.verifier)}</span></span>
       <span class="pts">${esc(u.status || "En vérification")}</span>
     </summary>
     <div class="detail">
+      ${img ? `<img class="cover" loading="lazy" alt="" src="${esc(img)}">` : ""}
       <h3>Informations</h3>
       <ul>
         <li>Créateur : ${esc(u.creator)}</li>
-        <li>Vérificateur : ${esc(u.verifier)} ${link(u.video, "vidéo")}</li>
+        <li>Vérificateur : ${esc(u.verifier)}</li>
         ${u.progress != null ? `<li>Progression du vérificateur : ${esc(u.progress)}%</li>` : ""}
         <li>ID du niveau : ${esc(u.id)}</li>
       </ul>
