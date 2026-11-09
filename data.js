@@ -38,3 +38,25 @@ const LEVELS = [
     ] 
   }
 ];
+
+// ============================================================
+//  NIVEAUX À VENIR (en cours de vérification)
+//  Cette liste n’influence pas le classement ni les points.
+//  - status   : texte affiché (ex. "En vérification", "Bientôt sur la liste")
+//  - progress : meilleur % du vérificateur (optionnel, tu peux supprimer la ligne)
+//  - bestRuns : meilleurs runs des autres joueurs, triés automatiquement par %
+// ============================================================
+const UPCOMING = [
+  {
+    name: "Acu",
+    creator: "neigefeu",
+    verifier: "ShadowLuminaty",
+    id: "61079355",
+    video: "",
+    status: "En vérification",
+    progress: 29, 68-100%,
+    bestRuns: [
+
+    ]
+  }
+];
