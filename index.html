@@ -174,8 +174,6 @@ function upcomingHTML(u) {
         ${u.progress != null ? `<li>Progression du vérificateur : ${esc(u.progress)}%</li>` : ""}
         <li>ID du niveau : ${esc(u.id)}</li>
       </ul>
-      <h3>Best runs</h3>
-      ${list ? `<ul>${list}</ul>` : `<p class="mute">Aucun run enregistré pour l’instant.</p>`}
     </div>
   </details>`;
 }
