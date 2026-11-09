@@ -34,6 +34,6 @@ const LEVELS = [
     records: [
   { player: "DraNoX", video: "", date: "2026-11-08" }
   { player: "Xxsvn", video: "", date: "2026-11-09" }
-]
+    ] 
   }
 ];
