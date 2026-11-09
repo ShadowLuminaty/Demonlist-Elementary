@@ -52,11 +52,8 @@ const UPCOMING = [
     creator: "neigefeu",
     verifier: "ShadowLuminaty",
     id: "61079355",
-    video: "",
+    video: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpoOJQ1uzDRbZH4UcM7QsXWZQJvKZb8rJ3eY87JyLEuQ&s=10",
     status: "En vérification",
-    progress: "29%, 68-100%",
-    bestRuns: [
-
-    ]
+    progress: "29, 68-100",
   }
 ];
