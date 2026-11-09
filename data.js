@@ -57,7 +57,7 @@ const UPCOMING = [
     video: "https://www.youtube.com/watch?v=aGHGYClmtJw",
     status: "En vérification",
     progress: "41, 68-100"
-  }
+  },
     {
     name: "ReVolution Unleashed",
     creator: "WayAway04",
