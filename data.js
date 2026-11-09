@@ -54,7 +54,7 @@ const UPCOMING = [
     id: "61079355",
     video: "",
     status: "En vérification",
-    progress: 29, 68-100%,
+    progress: "29%, 68-100%",
     bestRuns: [
 
     ]
