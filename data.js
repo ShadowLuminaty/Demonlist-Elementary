@@ -115,5 +115,15 @@ const UPCOMING = [
     video: "https://www.youtube.com/watch?v=mgzTHUKATqo",
     status: "En vérification",
     progress: "28",
-  }
+  },
+  {
+    name: "Prismatic",
+    creator: "CatGeo",
+    verifier: "?",
+    id: "107341811",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkbIGzKUkyxPqnnJzIZN8BGYCc6VoUcRxto6mZIBaq5w&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
+    video: "https://www.youtube.com/watch?v=3vH8jqxdq80",
+    status: "Vérification à venir",
+    progress: "N/O"
+  },
 ];
