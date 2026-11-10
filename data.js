@@ -42,7 +42,7 @@ const LEVELS = [
     creator: "ToastLord",
     verifier: "DraNoX",
     id: "67113181",
-    video: "",
+    video: "https://www.youtube.com/watch?v=CpTjj2gVEbY",
     records: [
       { player: "Xxsvn", video: "", date: "2026-11-10" },
     ] 
