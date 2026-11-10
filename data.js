@@ -36,6 +36,16 @@ const LEVELS = [
       { player: "DraNoX", video: "", date: "2026-11-08" },
       { player: "Xxsvn", video: "", date: "2026-11-09" }
     ] 
+  },
+  {
+    name: "Scarlet Smog",
+    creator: "ToastLord",
+    verifier: "DraNoX",
+    id: "67113181",
+    video: "",
+    records: [
+      { player: "Xxsvn", video: "", date: "2026-11-10" },
+    ] 
   }
 ];
 
