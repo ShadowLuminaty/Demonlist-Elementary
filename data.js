@@ -48,6 +48,15 @@ const LEVELS = [
     ] 
   },
   {
+    name: "Red Dart",
+    creator: "4chairs",
+    verifier: "Xxsvn",
+    id: "77614559",
+    video: "https://www.youtube.com/watch?v=xblP95vz03s",
+    records: [
+    ] 
+  },
+  {
     name: "Taimiri",
     creator: "Jayuff",
     verifier: "Xxsvn",
