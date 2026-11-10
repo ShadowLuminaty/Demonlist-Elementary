@@ -56,7 +56,7 @@ const UPCOMING = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpoOJQ1uzDRbZH4UcM7QsXWZQJvKZb8rJ3eY87JyLEuQ&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
     video: "https://www.youtube.com/watch?v=aGHGYClmtJw",
     status: "En vérification",
-    progress: "41, 68-100"
+    progress: "66, 63-100"
   },
     {
     name: "ReVolution Unleashed",
