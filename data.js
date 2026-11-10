@@ -46,6 +46,15 @@ const LEVELS = [
     records: [
       { player: "Xxsvn", video: "", date: "2026-11-10" },
     ] 
+  },
+  {
+    name: "Taimiri",
+    creator: "Jayuff",
+    verifier: "Xxsvn",
+    id: "35305816",
+    video: "https://www.youtube.com/watch?v=PQ2YxfaZDrc",
+    records: [
+    ] 
   }
 ];
 
