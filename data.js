@@ -77,5 +77,15 @@ const UPCOMING = [
     video: "https://www.youtube.com/watch?v=sLf9Vc02i9k",
     status: "En vérification",
     progress: "48, 50-100",
+  },
+  {
+    name: "Skeletal Shenanigans",
+    creator: "YoReid",
+    verifier: "Ayolos73",
+    id: "118509879",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXQ_D0s_8OJC8KpOiTuGfyhEpgUTkRX602goqGXIuAjw&s",
+    video: "https://www.youtube.com/watch?v=mgzTHUKATqo",
+    status: "En vérification",
+    progress: "28",
   }
 ];
