@@ -118,6 +118,7 @@ const LEVELS = [
     video: "https://youtu.be/iYOEr5AiBV8",
     records: [
       { player: "ShadowLuminaty", video: "https://youtu.be/HnNOKLCFhBo", date: "2026-11-11" },
+      { player: "DraNoX", video: "https://youtu.be/5gcVp7-eRGk?si=80c4tB9eOC0FPgBr", date: "2026-11-11" },
     ] 
   },
 ];
