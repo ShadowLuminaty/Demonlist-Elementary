@@ -68,7 +68,7 @@ const LEVELS = [
 ];
 
 // ============================================================
-//  NIVEAUX À VENIR (en cours de vérification)
+//  VÉRIFICATIONS (niveaux en cours de vérification)
 //  Cette liste n’influence pas le classement ni les points.
 //  - status   : texte affiché (ex. "En vérification", "Bientôt sur la liste")
 //  - progress : meilleur % du vérificateur (optionnel, tu peux supprimer la ligne)
@@ -126,4 +126,34 @@ const UPCOMING = [
     status: "Vérification à venir",
     progress: "N/O"
   },
+];
+
+// ============================================================
+//  UPCOMING TOP 1 (niveaux qui pourraient devenir le nouveau n°1)
+//  Mêmes champs que les vérifications. N’influence pas le classement.
+//  Pour ajouter un niveau : copie le modèle ci-dessous à l’intérieur
+//  des crochets [ ] et enlève les // au début de chaque ligne.
+//  Mets une virgule entre deux niveaux (pas après le dernier si tu veux être propre).
+// ============================================================
+const UPCOMING_TOP1 = [
+  // {
+  //   name: "Nom du niveau",
+  //   creator: "Créateur",
+  //   verifier: "Vérificateur",
+  //   id: "12345678",
+  //   image: "",
+  //   video: "",
+  //   status: "En vérification",
+  //   progress: "50"
+  // }
+  {
+    name: "Acu",
+    creator: "neigefeu",
+    verifier: "ShadowLuminaty",
+    id: "61079355",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpoOJQ1uzDRbZH4UcM7QsXWZQJvKZb8rJ3eY87JyLEuQ&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
+    video: "https://www.youtube.com/watch?v=aGHGYClmtJw",
+    status: "En vérification",
+    progress: "69, 63-100x2"
+  }
 ];
