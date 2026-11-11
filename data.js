@@ -48,6 +48,15 @@ const LEVELS = [
     ] 
   },
   {
+    name: "Brainpower",
+    creator: "BrainETR",
+    verifier: "Xxsvn",
+    id: "79238456",
+    video: "https://youtu.be/zjdg0GbU8K4",
+    records: [
+    ]
+  },
+  {
     name: "Red Dart",
     creator: "4chairs",
     verifier: "Xxsvn",
