@@ -65,6 +65,15 @@ const LEVELS = [
     records: [
     ]
   },
+    {
+    name: "White Space",
+    creator: "Xender Game",
+    verifier: "Xxsvn",
+    id: "79238456",
+    video: "https://youtu.be/DYzs09IQqpM",
+    records: [
+    ]
+  },
   {
     name: "Nebula",
     creator: "SouneX",
@@ -74,7 +83,7 @@ const LEVELS = [
     records: [
       { player: "ShadowLuminaty", video: "https://youtu.be/Ymh0oSLYTgM", date: "2026-11-11" },
     ] 
-  }
+  },
 ];
 
 // ============================================================
