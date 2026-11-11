@@ -63,7 +63,7 @@ const LEVELS = [
     id: "35305816",
     video: "https://www.youtube.com/watch?v=PQ2YxfaZDrc",
     records: [
-    ] 
+    ]
   },
   {
     name: "Nebula",
@@ -72,6 +72,7 @@ const LEVELS = [
     id: "151561213",
     video: "https://youtu.be/iYOEr5AiBV8",
     records: [
+      { player: "ShadowLuminaty", video: "https://youtu.be/Ymh0oSLYTgM", date: "2026-11-11" },
     ] 
   }
 ];
