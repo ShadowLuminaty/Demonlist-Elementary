@@ -66,6 +66,15 @@ const LEVELS = [
     ] 
   },
   {
+    name: "Verity",
+    creator: "Serponge",
+    verifier: "Xxsvn",
+    id: "18834999",
+    video: "https://youtu.be/-r9mGV7nGDQ",
+    records: [
+    ]
+  },
+  {
     name: "Brainpower",
     creator: "BrainETR",
     verifier: "Xxsvn",
