@@ -38,6 +38,15 @@ const LEVELS = [
     ] 
   },
   {
+    name: "Gy",
+    creator: "An Gyung",
+    verifier: "Xxsvn",
+    id: "76158198",
+    video: "https://youtu.be/i9QJPDfGCys",
+    records: [
+    ]
+  },
+  {
     name: "Scarlet Smog",
     creator: "ToastLord",
     verifier: "DraNoX",
