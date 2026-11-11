@@ -27,6 +27,15 @@ const LEVELS = [
     ]
   },
   {
+    name: "Nine Circles",
+    creator: "Zobros",
+    verifier: "ShadowLuminaty",
+    id: "4284013",
+    video: "https://youtu.be/J21j9ZfAHCI",
+    records: [
+    ] 
+  },
+  {
     name: "white women",
     creator: "Heatheryahes",
     verifier: "ShadowLuminaty",
@@ -99,7 +108,7 @@ const LEVELS = [
     id: "151561213",
     video: "https://youtu.be/iYOEr5AiBV8",
     records: [
-      { player: "ShadowLuminaty", video: "https://youtu.be/Ymh0oSLYTgM", date: "2026-11-11" },
+      { player: "ShadowLuminaty", video: "https://youtu.be/HnNOKLCFhBo", date: "2026-11-11" },
     ] 
   },
 ];
