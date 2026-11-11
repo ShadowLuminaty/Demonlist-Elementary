@@ -67,7 +67,8 @@ footer{margin-top:40px;color:var(--mute);font-size:.95rem}
   <div class="bar">
     <button id="tab-liste" aria-pressed="true">Niveaux</button>
     <button id="tab-joueurs" aria-pressed="false">Joueurs</button>
-    <button id="tab-upcoming" aria-pressed="false">Upcoming levels</button>
+    <button id="tab-verifs" aria-pressed="false">Vérifications</button>
+    <button id="tab-top1" aria-pressed="false">Upcoming top 1</button>
     <input id="search" type="search" placeholder="Chercher un niveau ou un joueur" aria-label="Rechercher">
   </div>
 
@@ -90,7 +91,8 @@ const link = (u, label) => safeUrl(u) ? `<a href="${esc(u)}" target="_blank" rel
 const ordinal = n => { const s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); };
 
 const h = location.hash.slice(1);
-let tab = ["joueurs", "upcoming"].includes(h) ? h : "liste";
+const hashTabs = { joueurs: "joueurs", verifications: "verifs", upcoming: "verifs", top1: "top1" };
+let tab = hashTabs[h] || "liste";
 
 // Calcule le classement des joueurs à partir des niveaux
 function computePlayers() {
@@ -181,7 +183,7 @@ function upcomingHTML(u) {
       <ul>
         <li>Créateur : ${esc(u.creator)}</li>
         <li>Vérificateur : ${esc(u.verifier)}</li>
-        ${u.progress != null ? `<li>Progression du vérificateur : ${esc(u.progress)}%</li>` : ""}
+        ${u.progress != null ? `<li>Progression du vérificateur : ${esc(u.progress)}${/\d$/.test(String(u.progress)) ? "%" : ""}</li>` : ""}
         <li>ID du niveau : ${esc(u.id)}</li>
       </ul>
     </div>
@@ -195,8 +197,9 @@ function render() {
     html = LEVELS.map((l, i) => [l, i])
       .filter(([l]) => !q || [l.name, l.creator, l.verifier].some(s => String(s).toLowerCase().includes(q)))
       .map(([l, i]) => levelHTML(l, i)).join("");
-  } else if (tab === "upcoming") {
-    const up = typeof UPCOMING !== "undefined" ? UPCOMING : [];
+  } else if (tab === "verifs" || tab === "top1") {
+    const src = tab === "top1" ? (typeof UPCOMING_TOP1 !== "undefined" ? UPCOMING_TOP1 : []) : (typeof UPCOMING !== "undefined" ? UPCOMING : []);
+    const up = src;
     html = up.filter(u => !q || [u.name, u.creator, u.verifier].some(s => String(s).toLowerCase().includes(q)))
       .map(upcomingHTML).join("");
   } else {
@@ -204,11 +207,12 @@ function render() {
       .filter(([p]) => !q || p.name.toLowerCase().includes(q))
       .map(([p, i]) => playerHTML(p, i)).join("");
   }
-  const cls = tab === "joueurs" ? "players" : tab === "upcoming" ? "upc" : "";
-  $("#out").innerHTML = `<div class="${cls}">${html || `<p class="empty">Aucun résultat.</p>`}</div>`;
+  const cls = tab === "joueurs" ? "players" : (tab === "verifs" || tab === "top1") ? "upc" : "";
+  $("#out").innerHTML = `<div class="${cls}">${html || `<p class="empty">${tab === "top1" && !q ? "Aucun niveau pour le moment." : "Aucun résultat."}</p>`}</div>`;
   $("#tab-liste").setAttribute("aria-pressed", tab === "liste");
   $("#tab-joueurs").setAttribute("aria-pressed", tab === "joueurs");
-  $("#tab-upcoming").setAttribute("aria-pressed", tab === "upcoming");
+  $("#tab-verifs").setAttribute("aria-pressed", tab === "verifs");
+  $("#tab-top1").setAttribute("aria-pressed", tab === "top1");
 }
 
 $("#title").textContent = SITE.title;
@@ -217,7 +221,8 @@ document.title = SITE.title;
 $("#discord").href = safeUrl(SITE.discord) || "#";
 $("#tab-liste").onclick = () => { tab = "liste"; location.hash = "liste"; render(); };
 $("#tab-joueurs").onclick = () => { tab = "joueurs"; location.hash = "joueurs"; render(); };
-$("#tab-upcoming").onclick = () => { tab = "upcoming"; location.hash = "upcoming"; render(); };
+$("#tab-verifs").onclick = () => { tab = "verifs"; location.hash = "verifications"; render(); };
+$("#tab-top1").onclick = () => { tab = "top1"; location.hash = "top1"; render(); };
 $("#search").oninput = render;
 render();
 </script>
