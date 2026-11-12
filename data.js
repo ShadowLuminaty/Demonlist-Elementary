@@ -192,7 +192,7 @@ const UPCOMING = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkbIGzKUkyxPqnnJzIZN8BGYCc6VoUcRxto6mZIBaq5w&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
     video: "https://youtu.be/iYOEr5AiBV8",
     status: "En vérification",
-    progress: "N/O"
+    progress: "17%, 78-88"
   },
 ];
 
@@ -222,7 +222,7 @@ const UPCOMING_TOP1 = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkbIGzKUkyxPqnnJzIZN8BGYCc6VoUcRxto6mZIBaq5w&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
     video: "https://youtu.be/iYOEr5AiBV8",
     status: "En vérification",
-    progress: "N/O"
+    progress: "17%, 78-88"
   },
 
 ];
