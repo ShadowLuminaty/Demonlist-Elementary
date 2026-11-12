@@ -33,6 +33,7 @@ const LEVELS = [
     id: "4284013",
     video: "https://youtu.be/J21j9ZfAHCI",
     records: [
+      { player: "Xxsvn", video: "", date: "2026-11-09" }
     ] 
   },
   {
@@ -64,6 +65,15 @@ const LEVELS = [
     records: [
       { player: "Xxsvn", video: "", date: "2026-11-10" },
     ] 
+  },
+  {
+    name: "Sakupen Egg",
+    creator: "Sivlol",
+    verifier: "DraNoX",
+    id: "58002670",
+    video: "https://youtu.be/RhMVHFjzPbk",
+    records: [
+    ]
   },
   {
     name: "Verity",
@@ -118,7 +128,7 @@ const LEVELS = [
     video: "https://youtu.be/iYOEr5AiBV8",
     records: [
       { player: "ShadowLuminaty", video: "https://youtu.be/HnNOKLCFhBo", date: "2026-11-11" },
-      { player: "DraNoX", video: "https://youtu.be/5gcVp7-eRGk?si=80c4tB9eOC0FPgBr", date: "2026-11-11" },
+      { player: "DraNoX", video: "https://youtu.be/5gcVp7-eRGk", date: "2026-11-11" },
     ] 
   },
 ];
@@ -140,7 +150,7 @@ const UPCOMING = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpoOJQ1uzDRbZH4UcM7QsXWZQJvKZb8rJ3eY87JyLEuQ&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
     video: "https://www.youtube.com/watch?v=aGHGYClmtJw",
     status: "En vérification",
-    progress: "81%, 45-100"
+    progress: "93%, 35-97, 45-100"
   },
     {
     name: "ReVolution Unleashed",
@@ -210,6 +220,6 @@ const UPCOMING_TOP1 = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpoOJQ1uzDRbZH4UcM7QsXWZQJvKZb8rJ3eY87JyLEuQ&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
     video: "https://www.youtube.com/watch?v=aGHGYClmtJw",
     status: "En vérification",
-    progress: "81%, 45-100"
+    progress: "93%, 35-97, 45-100"
   }
 ];
