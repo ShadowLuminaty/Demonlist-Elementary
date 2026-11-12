@@ -17,6 +17,15 @@ const SITE = {
 // - records  : les autres joueurs qui ont battu le niveau, avec leur preuve vidéo
 const LEVELS = [
   {
+    name: "Acu",
+    creator: "neigefeu",
+    verifier: "ShadowLuminaty",
+    id: "61079355",
+    video: "https://youtu.be/l8gNDidE6Mc",
+    records: [
+      ]
+  },
+  {
     name: "Crazy",
     creator: "DavJT",
     verifier: "ShadowLuminaty",
@@ -142,16 +151,6 @@ const LEVELS = [
 //  - video    : lien YouTube de la vidéo de démonstration du niveau (laisse "" s’il n’y en a pas)
 // ============================================================
 const UPCOMING = [
-  {
-    name: "Acu",
-    creator: "neigefeu",
-    verifier: "ShadowLuminaty",
-    id: "61079355",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpoOJQ1uzDRbZH4UcM7QsXWZQJvKZb8rJ3eY87JyLEuQ&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
-    video: "https://www.youtube.com/watch?v=aGHGYClmtJw",
-    status: "En vérification",
-    progress: "93%, 35-97, 45-100"
-  },
     {
     name: "ReVolution Unleashed",
     creator: "WayAway04",
@@ -180,7 +179,7 @@ const UPCOMING = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXQ_D0s_8OJC8KpOiTuGfyhEpgUTkRX602goqGXIuAjw&s",
     video: "https://www.youtube.com/watch?v=mgzTHUKATqo",
     status: "En vérification",
-    progress: "76",
+    progress: "99",
   },
   {
     name: "Prismatic",
@@ -212,14 +211,4 @@ const UPCOMING_TOP1 = [
   //   status: "En vérification",
   //   progress: "50"
   // }
-  {
-    name: "Acu",
-    creator: "neigefeu",
-    verifier: "ShadowLuminaty",
-    id: "61079355",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpoOJQ1uzDRbZH4UcM7QsXWZQJvKZb8rJ3eY87JyLEuQ&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
-    video: "https://www.youtube.com/watch?v=aGHGYClmtJw",
-    status: "En vérification",
-    progress: "93%, 35-97, 45-100"
-  }
 ];
