@@ -82,6 +82,7 @@ const LEVELS = [
     id: "58002670",
     video: "https://youtu.be/RhMVHFjzPbk",
     records: [
+      { player: "ShadowLuminaty", video: "", date: "2026-11-12" },
     ]
   },
   {
@@ -109,6 +110,7 @@ const LEVELS = [
     id: "77614559",
     video: "https://www.youtube.com/watch?v=xblP95vz03s",
     records: [
+      { player: "ShadowLuminaty", video: "", date: "2026-11-12" },
     ] 
   },
   {
