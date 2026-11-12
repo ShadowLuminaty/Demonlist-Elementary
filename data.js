@@ -127,6 +127,7 @@ const LEVELS = [
     id: "77292103",
     video: "https://youtu.be/DYzs09IQqpM",
     records: [
+      { player: "ShadowLuminaty", video: "", date: "2026-11-12" },
     ]
   },
   {
