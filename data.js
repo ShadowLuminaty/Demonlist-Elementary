@@ -123,8 +123,8 @@ const LEVELS = [
     ]
   },
   {
-    name: "Skeletal Shenaningan",
-    creator: "",
+    name: "Skeletal Shenaningans",
+    creator: "YoReid",
     verifier: "Ayolos73",
     id: "118509879",
     video: "https://youtu.be/N5kJR-Y9IZk",
