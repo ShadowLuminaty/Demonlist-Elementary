@@ -122,6 +122,17 @@ const LEVELS = [
     records: [
     ]
   },
+  {
+    name: "Skeletal Shenaningan",
+    creator: "",
+    verifier: "Ayolos73",
+    id: "118509879",
+    video: "https://youtu.be/N5kJR-Y9IZk",
+    records: [
+      { player: "Xxsvn", video: "", date: "2026-11-15" },
+      { player: "ShadowLuminaty", video: "", date: "2026-11-15" },
+    ]
+  },  
     {
     name: "White Space",
     creator: "Xender Game",
@@ -173,16 +184,6 @@ const UPCOMING = [
     video: "https://www.youtube.com/watch?v=sLf9Vc02i9k",
     status: "En vérification",
     progress: "48%, 50-100",
-  },
-  {
-    name: "Skeletal Shenanigans",
-    creator: "YoReid",
-    verifier: "Ayolos73",
-    id: "118509879",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXQ_D0s_8OJC8KpOiTuGfyhEpgUTkRX602goqGXIuAjw&s",
-    video: "https://www.youtube.com/watch?v=mgzTHUKATqo",
-    status: "En vérification",
-    progress: "99",
   },
   {
     name: "Grief Processing",
