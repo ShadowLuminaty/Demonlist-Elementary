@@ -185,14 +185,24 @@ const UPCOMING = [
     progress: "99",
   },
   {
+    name: "Grief Processing",
+    creator: "VerdinGD",
+    verifier: "ShadowLuminaty",
+    id: "149583267",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSta_0lzKGemT55UUWNs2BCitemjmGNZgm2yW5_o2iAjg&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
+    video: "https://www.youtube.com/watch?v=5scnwAOlg2o",
+    status: "En vérification",
+    progress: "46%, 66-100"
+  },  
+  {
     name: "Prismatic",
     creator: "CatGeo",
     verifier: "ShadowLuminaty",
     id: "107341811",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkbIGzKUkyxPqnnJzIZN8BGYCc6VoUcRxto6mZIBaq5w&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
     video: "https://youtu.be/iYOEr5AiBV8",
-    status: "En vérification",
-    progress: "17%, 78-88"
+    status: "Vérification à venir",
+    progress: "19%, 78-88"
   },
 ];
 
@@ -214,15 +224,4 @@ const UPCOMING_TOP1 = [
   //   status: "En vérification",
   //   progress: "50"
   // }
-    {
-    name: "Prismatic",
-    creator: "CatGeo",
-    verifier: "ShadowLuminaty",
-    id: "107341811",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkbIGzKUkyxPqnnJzIZN8BGYCc6VoUcRxto6mZIBaq5w&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
-    video: "https://youtu.be/iYOEr5AiBV8",
-    status: "En vérification",
-    progress: "17%, 78-88"
-  },
-
 ];
