@@ -123,7 +123,7 @@ const LEVELS = [
     ]
   },
   {
-    name: "Skeletal Shenaningans",
+    name: "Skeletal Shenanigans",
     creator: "YoReid",
     verifier: "Ayolos73",
     id: "118509879",
