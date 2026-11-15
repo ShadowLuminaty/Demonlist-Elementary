@@ -133,35 +133,65 @@ const h = location.hash.slice(1);
 const hashTabs = { joueurs: "joueurs", verifications: "verifs", upcoming: "verifs", top1: "top1" };
 let tab = hashTabs[h] || "liste";
 
+// Part des points gagnée avec un « progrès » (record partiel). Modifiable dans data.js : SITE.partialShare
+const PARTIAL = (typeof SITE.partialShare === "number") ? SITE.partialShare : 0.1;
+const isFull = r => r.percent == null || r.percent >= 100;
+
 // Calcule le classement des joueurs à partir des niveaux
 function computePlayers() {
   const map = {};
-  const get = n => map[n] || (map[n] = { name: n, points: 0, verified: [], beaten: [] });
+  const get = n => map[n] || (map[n] = { name: n, points: 0, verified: [], beaten: [], progress: [] });
   LEVELS.forEach((l, i) => {
     const rank = i + 1, p = pts(rank);
     if (l.verifier) { const pl = get(l.verifier); pl.points += p; pl.verified.push({ l, rank, p }); }
+    // meilleur record de chaque joueur sur ce niveau (le 100 % passe avant un progrès)
+    const best = {};
     (l.records || []).forEach(r => {
       if (r.player === l.verifier) return; // pas de double comptage
-      const pl = get(r.player); pl.points += p; pl.beaten.push({ l, rank, p, r });
+      const full = isFull(r);
+      if (!full && !(l.minPercent && r.percent >= l.minPercent)) return; // progrès sous le minimum : 0 point
+      const cur = best[r.player];
+      if (!cur || (full && !cur.full) || (!full && !cur.full && r.percent > cur.r.percent)) best[r.player] = { r, full };
+    });
+    Object.entries(best).forEach(([name, { r, full }]) => {
+      const pl = get(name), gain = full ? p : p * PARTIAL;
+      pl.points += gain;
+      (full ? pl.beaten : pl.progress).push({ l, rank, p: gain, r });
     });
   });
   return Object.values(map).sort((a, b) => b.points - a.points);
 }
 
+function ptsLine(l, p) {
+  return l.minPercent
+    ? `${(p * PARTIAL).toFixed(2)} (${esc(l.minPercent)}%) — ${p.toFixed(2)} (100%) points`
+    : `${p.toFixed(2)} points`;
+}
+
 function levelHTML(l, i) {
-  const rank = i + 1, id = ytId(l.video);
+  const rank = i + 1, id = ytId(l.video), p = pts(rank);
   const thumb = id
     ? `<img class="thumb" loading="lazy" alt="" src="https://img.youtube.com/vi/${id}/mqdefault.jpg">`
     : `<div class="thumb"></div>`;
-  const recs = (l.records || []).map((r, k) =>
+  const all = l.records || [];
+  const full = all.filter(isFull);
+  const part = all.filter(r => !isFull(r)).sort((a, b) => b.percent - a.percent);
+  const recs = full.map((r, k) =>
     `<li><strong>${ordinal(k + 1)} victor</strong> : ${esc(r.player)} <span class="mute">${esc(r.date || "")}</span> ${link(r.video, "vidéo")}</li>`).join("");
+  const prog = part.map(r =>
+    `<li><strong>${esc(r.percent)}%</strong> : ${esc(r.player)} <span class="mute">${esc(r.date || "")}</span> ${link(r.video, "vidéo")}${r.percent >= l.minPercent ? ` <span class="mute">+${(p * PARTIAL).toFixed(2)} pts</span>` : ` <span class="mute">(sous le minimum)</span>`}</li>`).join("");
+  const progSection = l.minPercent
+    ? `<h3>Progrès (à partir de ${esc(l.minPercent)}%)</h3>
+      <p class="mute">Atteindre ${esc(l.minPercent)}% du niveau rapporte ${Math.round(PARTIAL * 100)}% des points.</p>
+      ${prog ? `<ul>${prog}</ul>` : `<p class="mute">Aucun progrès enregistré.</p>`}`
+    : "";
   return `<details class="item">
     <summary>
       ${thumb}
       <div class="info">
         <h2 class="title">#${rank} – ${esc(l.name)}</h2>
         <p class="by">publié par <u>${esc(l.creator)}</u></p>
-        <p class="pts">${pts(rank).toFixed(2)} points</p>
+        <p class="pts">${ptsLine(l, p)}</p>
       </div>
     </summary>
     <div class="detail">
@@ -171,8 +201,9 @@ function levelHTML(l, i) {
         <li>Vérifié par : ${esc(l.verifier)} ${link(l.video, "vidéo de la vérification")}</li>
         <li>ID du niveau : ${esc(l.id)}</li>
       </ul>
-      <h3>Records (${(l.records || []).length})</h3>
+      <h3>Records (${full.length})</h3>
       ${recs ? `<ul>${recs}</ul>` : `<p class="mute">Personne n’a encore battu ce niveau.</p>`}
+      ${progSection}
     </div>
   </details>`;
 }
@@ -180,6 +211,7 @@ function levelHTML(l, i) {
 function playerHTML(p, i) {
   const rank = i + 1;
   const row = x => `<li>#${x.rank} ${esc(x.l.name)} <span class="mute">+${x.p.toFixed(2)} pts</span> ${x.r ? link(x.r.video, "vidéo") : ""}</li>`;
+  const rowProg = x => `<li>#${x.rank} ${esc(x.l.name)} <strong>${esc(x.r.percent)}%</strong> <span class="mute">+${x.p.toFixed(2)} pts</span> ${link(x.r.video, "vidéo")}</li>`;
   return `<details class="item">
     <summary>
       <div class="info">
@@ -192,6 +224,8 @@ function playerHTML(p, i) {
       ${p.verified.length ? `<ul>${p.verified.map(row).join("")}</ul>` : `<p class="mute">Aucun.</p>`}
       <h3>Niveaux battus (${p.beaten.length})</h3>
       ${p.beaten.length ? `<ul>${p.beaten.map(row).join("")}</ul>` : `<p class="mute">Aucun.</p>`}
+      <h3>Progrès (${p.progress.length})</h3>
+      ${p.progress.length ? `<ul>${p.progress.map(rowProg).join("")}</ul>` : `<p class="mute">Aucun.</p>`}
     </div>
   </details>`;
 }
