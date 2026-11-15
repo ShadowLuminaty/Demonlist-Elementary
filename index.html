@@ -6,69 +6,91 @@
 <title>Demonlist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#15112e; --card:#201a45; --line:#372e70; --text:#efeaff; --mute:#a79fd1;
-  --accent:#ff8a1f; --gold:#ffd23f; --r:14px;
-  --display:"Lilita One","Arial Rounded MT Bold",Impact,sans-serif;
-  --body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --bg:#13101f; --card:#262140; --card-hi:#2e2852; --bar:#1b1731; --line:#3d3668;
+  --text:#ece8ff; --mute:#a9a1cf; --accent:#a78bfa; --link:#c4b5fd;
+  --font:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.5 var(--body)}
-a{color:var(--gold)}
-.wrap{max-width:860px;margin:0 auto;padding:0 20px 60px}
-header{padding:56px 0 8px}
-h1{font:400 clamp(2.4rem,8vw,4.2rem)/1 var(--display);margin:0;letter-spacing:.01em}
-.sub{color:var(--mute);margin:12px 0 0;max-width:52ch}
-.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:28px 0 18px}
-.bar button{font:800 1rem var(--body);background:var(--card);color:var(--text);border:2px solid var(--line);border-radius:999px;padding:8px 20px;cursor:pointer}
-.bar button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#1a1033}
-.bar input{flex:1;min-width:160px;font:400 1rem var(--body);background:var(--card);color:var(--text);border:2px solid var(--line);border-radius:999px;padding:8px 18px}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font:500 1rem/1.5 var(--font);min-height:100vh}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 
-.item{background:var(--card);border:2px solid var(--line);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
-.item[open]{border-color:var(--accent)}
-summary{list-style:none;display:grid;grid-template-columns:76px 168px 1fr auto;align-items:center;gap:16px;padding:10px 18px 10px 10px;cursor:pointer}
+/* Décor de carrés violets à gauche */
+.deco{position:fixed;left:0;top:0;bottom:0;width:240px;overflow:hidden;pointer-events:none;z-index:0}
+.deco i{position:absolute;display:block}
+
+.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto 0 270px;padding:0 24px 60px 0}
+header{padding:40px 0 22px}
+h1{font:800 clamp(1.8rem,4.5vw,2.6rem)/1.1 var(--font);margin:0}
+.sub{color:var(--mute);margin:8px 0 0;max-width:60ch;font-size:.95rem}
+
+.tabs{display:flex;flex-wrap:wrap;border:1px dashed var(--line);background:var(--bar)}
+.tabs button{flex:1 1 0;min-width:130px;font:700 1rem var(--font);color:var(--text);background:transparent;border:0;border-right:1px dashed var(--line);padding:16px 10px;cursor:pointer}
+.tabs button:last-child{border-right:0}
+.tabs button:hover{background:#221d3d}
+.tabs button[aria-pressed="true"]{background:var(--card);box-shadow:inset 0 -3px 0 var(--accent)}
+.search{margin:18px 0 0}
+.search input{width:100%;font:500 1rem var(--font);color:var(--text);background:var(--bar);border:1px dashed var(--line);padding:12px 16px;border-radius:0}
+
+.item{background:var(--card);border:1px dashed var(--line);margin-top:34px}
+.item:hover{background:var(--card-hi)}
+.item[open]{border:1px solid var(--accent)}
+summary{list-style:none;display:flex;align-items:center;gap:26px;padding:24px 26px;cursor:pointer}
 summary::-webkit-details-marker{display:none}
-.players summary{grid-template-columns:76px 1fr auto}
-.upc summary{grid-template-columns:168px 1fr auto;padding:10px 18px 10px 10px}
-.cover{display:block;width:100%;max-width:480px;border-radius:8px;margin-top:14px}
-.upc .pts{font-size:1.05rem;color:var(--accent)}
-.video{position:relative;width:100%;max-width:560px;aspect-ratio:16/9;margin-top:6px;border-radius:8px;overflow:hidden;background:#000}
-.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.rank{font:400 3.2rem/1 var(--display);text-align:center;color:transparent;-webkit-text-stroke:2px var(--accent)}
-.top .rank{color:var(--accent);-webkit-text-stroke:0}
-.thumb{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;background:linear-gradient(135deg,#3b2f86,#ff8a1f)}
-.name{font-weight:800;font-size:1.15rem}
-.mute{color:var(--mute);font-size:.95rem}
-.pts{font:400 1.3rem var(--display);color:var(--gold);white-space:nowrap}
-.detail{padding:6px 20px 18px;border-top:2px solid var(--line)}
-.detail h3{font:400 1.2rem var(--display);margin:16px 0 6px}
+.thumb{flex:0 0 258px;width:258px;aspect-ratio:16/9;object-fit:cover;display:block;background:linear-gradient(135deg,#3b2f86,#7c3aed)}
+.info{min-width:0}
+.title{margin:0;font:700 clamp(1.4rem,3vw,1.9rem)/1.2 var(--font);overflow-wrap:anywhere}
+.by{margin:6px 0 2px;font-weight:700;font-size:1.1rem}
+.by u{text-decoration:none;border-bottom:1px dotted var(--mute)}
+.pts{margin:2px 0 0;color:var(--mute);font-size:.95rem}
+
+.detail{padding:6px 26px 24px;border-top:1px dashed var(--line)}
+.detail h3{font:700 1.1rem var(--font);margin:20px 0 8px}
 .detail ul{margin:0;padding-left:20px}
-.detail li{margin:3px 0}
+.detail li{margin:4px 0}
+.mute{color:var(--mute);font-size:.95rem}
+.cover{display:block;width:100%;max-width:480px;margin-top:14px}
+.video{position:relative;width:100%;max-width:560px;aspect-ratio:16/9;margin-top:6px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .empty{color:var(--mute);padding:24px 0}
-footer{margin-top:40px;color:var(--mute);font-size:.95rem}
-@media (max-width:620px){
-  summary{grid-template-columns:56px 1fr auto}
-  .thumb{display:none}
-  .rank{font-size:2.4rem}
-  .upc summary{grid-template-columns:1fr auto}
+footer{margin-top:44px;color:var(--mute);font-size:.95rem}
+
+@media (max-width:900px){
+  .deco{width:70px}
+  .wrap{margin-left:86px;padding-right:16px}
+}
+@media (max-width:700px){
+  summary{flex-direction:column;align-items:flex-start;gap:16px;padding:18px}
+  .thumb{flex:0 0 auto;width:100%}
+  .detail{padding:4px 18px 20px}
+}
+@media (max-width:600px){
+  .deco{display:none}
+  .wrap{margin:0 auto;padding:0 16px 50px}
 }
 </style>
 </head>
 <body>
+<div class="deco" id="deco" aria-hidden="true"></div>
+
 <div class="wrap">
   <header>
     <h1 id="title"></h1>
     <p class="sub" id="subtitle"></p>
   </header>
 
-  <div class="bar">
+  <nav class="tabs">
     <button id="tab-liste" aria-pressed="true">Niveaux</button>
     <button id="tab-joueurs" aria-pressed="false">Joueurs</button>
     <button id="tab-verifs" aria-pressed="false">Vérifications</button>
     <button id="tab-top1" aria-pressed="false">Upcoming top 1</button>
+  </nav>
+
+  <div class="search">
     <input id="search" type="search" placeholder="Chercher un niveau ou un joueur" aria-label="Rechercher">
   </div>
 
@@ -87,8 +109,25 @@ const pts = rank => Math.round(SITE.maxPoints * Math.pow(SITE.decay, rank - 1));
 const ytId = u => { const m = /(?:youtu\.be\/|v=|embed\/)([\w-]{11})/.exec(u || ""); return m ? m[1] : null; };
 const safeUrl = u => /^https?:\/\//.test(u || "") ? u : "";
 const link = (u, label) => safeUrl(u) ? `<a href="${esc(u)}" target="_blank" rel="noopener">${label}</a>` : "";
-
+const imgSrc = s => /^(https?:\/\/|[\w\-.\/]+$)/.test(s || "") ? s : "";
 const ordinal = n => { const s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); };
+
+// ---------- Décor : carrés violets (positions fixes, générées une fois) ----------
+(function deco() {
+  const colors = ["#c9a8ff", "#b58cff", "#8a52f0", "#6a38c8", "#5a2fa8", "#9f7bd8", "#7d5fb0", "#4a2a94"];
+  let seed = 11;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  let out = "";
+  for (let i = 0; i < 140; i++) {
+    const s = 34 + Math.floor(rnd() * 58);
+    const x = Math.floor(Math.pow(rnd(), 1.5) * 235) - 25;
+    const y = Math.floor(rnd() * 2000) - 30;
+    const c = colors[Math.floor(rnd() * colors.length)];
+    const o = (0.55 + rnd() * 0.45).toFixed(2);
+    out += `<i style="left:${x}px;top:${y}px;width:${s}px;height:${s}px;background:${c};opacity:${o}"></i>`;
+  }
+  $("#deco").innerHTML = out;
+})();
 
 const h = location.hash.slice(1);
 const hashTabs = { joueurs: "joueurs", verifications: "verifs", upcoming: "verifs", top1: "top1" };
@@ -116,11 +155,14 @@ function levelHTML(l, i) {
     : `<div class="thumb"></div>`;
   const recs = (l.records || []).map((r, k) =>
     `<li><strong>${ordinal(k + 1)} victor</strong> : ${esc(r.player)} <span class="mute">${esc(r.date || "")}</span> ${link(r.video, "vidéo")}</li>`).join("");
-  return `<details class="item ${rank <= 3 ? "top" : ""}">
+  return `<details class="item">
     <summary>
-      <span class="rank">${rank}</span>${thumb}
-      <span><span class="name">${esc(l.name)}</span><br><span class="mute">par ${esc(l.creator)}</span></span>
-      <span class="pts">${pts(rank)} pts</span>
+      ${thumb}
+      <div class="info">
+        <h2 class="title">#${rank} – ${esc(l.name)}</h2>
+        <p class="by">publié par <u>${esc(l.creator)}</u></p>
+        <p class="pts">${pts(rank).toFixed(2)} points</p>
+      </div>
     </summary>
     <div class="detail">
       <h3>Informations</h3>
@@ -137,12 +179,13 @@ function levelHTML(l, i) {
 
 function playerHTML(p, i) {
   const rank = i + 1;
-  const row = x => `<li>#${x.rank} ${esc(x.l.name)} <span class="mute">+${x.p} pts</span> ${x.r ? link(x.r.video, "vidéo") : ""}</li>`;
-  return `<details class="item ${rank <= 3 ? "top" : ""}">
+  const row = x => `<li>#${x.rank} ${esc(x.l.name)} <span class="mute">+${x.p.toFixed(2)} pts</span> ${x.r ? link(x.r.video, "vidéo") : ""}</li>`;
+  return `<details class="item">
     <summary>
-      <span class="rank">${rank}</span>
-      <span class="name">${esc(p.name)}</span>
-      <span class="pts">${p.points} pts</span>
+      <div class="info">
+        <h2 class="title">#${rank} – ${esc(p.name)}</h2>
+        <p class="pts">${p.points.toFixed(2)} points</p>
+      </div>
     </summary>
     <div class="detail">
       <h3>Niveaux vérifiés (${p.verified.length})</h3>
@@ -152,8 +195,6 @@ function playerHTML(p, i) {
     </div>
   </details>`;
 }
-
-const imgSrc = s => /^(https?:\/\/|[\w\-.\/]+$)/.test(s || "") ? s : "";
 
 function upcomingHTML(u) {
   const vid = ytId(u.video);
@@ -174,8 +215,11 @@ function upcomingHTML(u) {
   return `<details class="item">
     <summary>
       ${thumb}
-      <span><span class="name">${esc(u.name)}</span><br><span class="mute">par ${esc(u.creator)}, vérifié par ${esc(u.verifier)}</span></span>
-      <span class="pts">${esc(u.status || "En vérification")}</span>
+      <div class="info">
+        <h2 class="title">${esc(u.name)}</h2>
+        <p class="by">publié par <u>${esc(u.creator)}</u></p>
+        <p class="pts">${esc(u.status || "En vérification")} — vérifié par ${esc(u.verifier)}</p>
+      </div>
     </summary>
     <div class="detail">
       ${media}
@@ -198,8 +242,7 @@ function render() {
       .filter(([l]) => !q || [l.name, l.creator, l.verifier].some(s => String(s).toLowerCase().includes(q)))
       .map(([l, i]) => levelHTML(l, i)).join("");
   } else if (tab === "verifs" || tab === "top1") {
-    const src = tab === "top1" ? (typeof UPCOMING_TOP1 !== "undefined" ? UPCOMING_TOP1 : []) : (typeof UPCOMING !== "undefined" ? UPCOMING : []);
-    const up = src;
+    const up = tab === "top1" ? (typeof UPCOMING_TOP1 !== "undefined" ? UPCOMING_TOP1 : []) : (typeof UPCOMING !== "undefined" ? UPCOMING : []);
     html = up.filter(u => !q || [u.name, u.creator, u.verifier].some(s => String(s).toLowerCase().includes(q)))
       .map(upcomingHTML).join("");
   } else {
@@ -207,8 +250,7 @@ function render() {
       .filter(([p]) => !q || p.name.toLowerCase().includes(q))
       .map(([p, i]) => playerHTML(p, i)).join("");
   }
-  const cls = tab === "joueurs" ? "players" : (tab === "verifs" || tab === "top1") ? "upc" : "";
-  $("#out").innerHTML = `<div class="${cls}">${html || `<p class="empty">${tab === "top1" && !q ? "Aucun niveau pour le moment." : "Aucun résultat."}</p>`}</div>`;
+  $("#out").innerHTML = html || `<p class="empty">${tab === "top1" && !q ? "Aucun niveau pour le moment." : "Aucun résultat."}</p>`;
   $("#tab-liste").setAttribute("aria-pressed", tab === "liste");
   $("#tab-joueurs").setAttribute("aria-pressed", tab === "joueurs");
   $("#tab-verifs").setAttribute("aria-pressed", tab === "verifs");
