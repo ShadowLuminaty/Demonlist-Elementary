@@ -24,7 +24,8 @@ const LEVELS = [
     video: "https://youtu.be/l8gNDidE6Mc",
     minPercent: 62,
     records: [
-      ]
+      { player: "Xxsvn", percent: 97, video: "", date: "" }
+    ]
   },
   {
     name: "Crazy",
@@ -32,6 +33,7 @@ const LEVELS = [
     verifier: "ShadowLuminaty",
     id: "40945673",
     video: "https://www.youtube.com/watch?v=Kk1OtWcCLsA",
+    minPercent: 65,
     records: [
       { player: "Xxsvn", video: "", date: "2026-11-09" }
     ]
