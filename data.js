@@ -22,6 +22,7 @@ const LEVELS = [
     verifier: "ShadowLuminaty",
     id: "61079355",
     video: "https://youtu.be/l8gNDidE6Mc",
+    minPercent: 62,
     records: [
       ]
   },
