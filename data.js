@@ -83,6 +83,7 @@ const LEVELS = [
     video: "https://youtu.be/RhMVHFjzPbk",
     records: [
       { player: "ShadowLuminaty", video: "", date: "2026-11-12" },
+      { player: "Xxsvn", video: "https://youtu.be/JKr37EAAZ98", date: "2026-11-15" },
     ]
   },
   {
