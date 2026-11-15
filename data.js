@@ -44,6 +44,7 @@ const LEVELS = [
     verifier: "ShadowLuminaty",
     id: "4284013",
     video: "https://youtu.be/J21j9ZfAHCI",
+    minPercent: 72,
     records: [
       { player: "Xxsvn", video: "", date: "2026-11-09" }
     ] 
@@ -54,6 +55,7 @@ const LEVELS = [
     verifier: "ShadowLuminaty",
     id: "63075323",
     video: "https://www.youtube.com/watch?v=bHJs0t2WH2U",
+    minPercent: 69,
     records: [
       { player: "DraNoX", video: "", date: "2026-11-08" },
       { player: "Xxsvn", video: "", date: "2026-11-09" }
@@ -65,6 +67,7 @@ const LEVELS = [
     verifier: "Xxsvn",
     id: "76158198",
     video: "https://youtu.be/i9QJPDfGCys",
+    minPercent: 74,
     records: [
     ]
   },
@@ -74,6 +77,7 @@ const LEVELS = [
     verifier: "DraNoX",
     id: "67113181",
     video: "https://www.youtube.com/watch?v=CpTjj2gVEbY",
+    minPercent: 68,
     records: [
       { player: "Xxsvn", video: "", date: "2026-11-10" },
     ] 
@@ -84,6 +88,7 @@ const LEVELS = [
     verifier: "DraNoX",
     id: "58002670",
     video: "https://youtu.be/RhMVHFjzPbk",
+    minPercent: 66,
     records: [
       { player: "ShadowLuminaty", video: "", date: "2026-11-12" },
       { player: "Xxsvn", video: "https://youtu.be/JKr37EAAZ98", date: "2026-11-15" },
@@ -95,6 +100,7 @@ const LEVELS = [
     verifier: "Xxsvn",
     id: "18834999",
     video: "https://youtu.be/-r9mGV7nGDQ",
+    minPercent: 73,
     records: [
     ]
   },
@@ -104,14 +110,16 @@ const LEVELS = [
     verifier: "Xxsvn",
     id: "79238456",
     video: "https://youtu.be/zjdg0GbU8K4",
+    minPercent: 69,
     records: [
     ]
   },
   {
-    name: "System 32",
+    name: "System32",
     creator: "oleki",
     verifier: "Xxsvn",
     id: "76280532",
+    minPercent: 65,
     video: "https://youtu.be/qDAl3UY2ZIg",
     records: [
     ]
@@ -122,6 +130,7 @@ const LEVELS = [
     verifier: "Xxsvn",
     id: "77614559",
     video: "https://www.youtube.com/watch?v=xblP95vz03s",
+    minPercent: 65,
     records: [
       { player: "ShadowLuminaty", video: "", date: "2026-11-12" },
     ] 
@@ -131,6 +140,7 @@ const LEVELS = [
     creator: "Jayuff",
     verifier: "Xxsvn",
     id: "35305816",
+    minPercent: 66,
     video: "https://www.youtube.com/watch?v=PQ2YxfaZDrc",
     records: [
     ]
@@ -141,6 +151,7 @@ const LEVELS = [
     verifier: "Xxsvn",
     id: "110959028",
     video: "https://youtu.be/2xd-NymjUz8",
+    minPercent: 57,
     records: [
       { player: "ShadowLuminaty", video: "", date: "2026-11-15" },
     ]
@@ -151,6 +162,7 @@ const LEVELS = [
     verifier: "Ayolos73",
     id: "118509879",
     video: "https://youtu.be/N5kJR-Y9IZk",
+    minPercent: 71,
     records: [
       { player: "Xxsvn", video: "", date: "2026-11-15" },
       { player: "ShadowLuminaty", video: "", date: "2026-11-15" },
@@ -162,6 +174,7 @@ const LEVELS = [
     verifier: "Xxsvn",
     id: "77292103",
     video: "https://youtu.be/DYzs09IQqpM",
+    minPercent: 63,
     records: [
       { player: "ShadowLuminaty", video: "", date: "2026-11-12" },
     ]
@@ -172,6 +185,7 @@ const LEVELS = [
     verifier: "Xxsvn",
     id: "151561213",
     video: "https://youtu.be/iYOEr5AiBV8",
+    minPercent: 65,
     records: [
       { player: "ShadowLuminaty", video: "https://youtu.be/HnNOKLCFhBo", date: "2026-11-11" },
       { player: "DraNoX", video: "https://youtu.be/5gcVp7-eRGk", date: "2026-11-11" },
@@ -183,6 +197,7 @@ const LEVELS = [
     verifier: "Ayolos73",
     id: "5904109",
     video: "https://www.youtube.com/watch?v=_ptU9vDpyu0",
+    minPercent: 59,
     records: [
       { player: "ShadowLuminaty", date: "2026-11-15" },
       { player: "Xxsvn", video: "https://youtu.be/diulw1_0nPY", date: "2026-11-15" },
