@@ -105,7 +105,7 @@ footer{margin-top:44px;color:var(--mute);font-size:.95rem}
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const pts = rank => Math.round(SITE.maxPoints * Math.pow(SITE.decay, rank - 1));
+const pts = rank => Math.round(SITE.maxPoints * Math.pow(SITE.decay, rank - 1) * 100) / 100;
 const ytId = u => { const m = /(?:youtu\.be\/|v=|embed\/)([\w-]{11})/.exec(u || ""); return m ? m[1] : null; };
 const safeUrl = u => /^https?:\/\//.test(u || "") ? u : "";
 const link = (u, label) => safeUrl(u) ? `<a href="${esc(u)}" target="_blank" rel="noopener">${label}</a>` : "";
