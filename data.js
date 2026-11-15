@@ -133,6 +133,16 @@ const LEVELS = [
     ]
   },
   {
+    name: "Neuf Cercles",
+    creator: "Gesponi4",
+    verifier: "Xxsvn",
+    id: "110959028",
+    video: "https://youtu.be/2xd-NymjUz8",
+    records: [
+      { player: "ShadowLuminaty", video: "", date: "2026-11-15" },
+    ]
+  },
+  {
     name: "Skeletal Shenanigans",
     creator: "YoReid",
     verifier: "Ayolos73",
