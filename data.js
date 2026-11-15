@@ -154,6 +154,16 @@ const LEVELS = [
       { player: "DraNoX", video: "https://youtu.be/5gcVp7-eRGk", date: "2026-11-11" },
     ] 
   },
+  {
+    name: "Platinum Adventure",
+    creator: "Jerry4",
+    verifier: "Ayolos73",
+    id: "5904109",
+    video: "https://www.youtube.com/watch?v=_ptU9vDpyu0",
+    records: [
+      { player: "ShadowLuminaty", date: "2026-11-15" },
+    ] 
+  },
 ];
 
 // ============================================================
