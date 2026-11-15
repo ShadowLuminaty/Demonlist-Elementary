@@ -183,7 +183,7 @@ const UPCOMING = [
     image: "https://cdn.discordapp.com/attachments/1569437323416961145/1569467030594125905/Geometry_Dash_Screenshot_2026.11.09_-_22.41.20.58.png?ex=6af38f93&is=6af23e13&hm=5b4812fc5180d4f0b48d50256f124dd5961eb0dd28c8dd7792762056adc55e8e&",
     video: "https://www.youtube.com/watch?v=sLf9Vc02i9k",
     status: "En vérification",
-    progress: "48%, 50-100",
+    progress: "50%, 50-100",
   },
   {
     name: "Grief Processing",
@@ -193,7 +193,7 @@ const UPCOMING = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSta_0lzKGemT55UUWNs2BCitemjmGNZgm2yW5_o2iAjg&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
     video: "https://www.youtube.com/watch?v=5scnwAOlg2o",
     status: "En vérification",
-    progress: "46%, 66-100"
+    progress: "46% x4, 66-100"
   },  
   {
     name: "Prismatic",
