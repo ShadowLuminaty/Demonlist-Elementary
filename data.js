@@ -105,6 +105,15 @@ const LEVELS = [
     ]
   },
   {
+    name: "System 32",
+    creator: "oleki",
+    verifier: "Xxsvn",
+    id: "76280532",
+    video: "https://youtu.be/qDAl3UY2ZIg",
+    records: [
+    ]
+  },
+  {
     name: "Red Dart",
     creator: "4chairs",
     verifier: "Xxsvn",
