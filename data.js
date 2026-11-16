@@ -242,7 +242,7 @@ const UPCOMING = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSta_0lzKGemT55UUWNs2BCitemjmGNZgm2yW5_o2iAjg&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
     video: "https://www.youtube.com/watch?v=5scnwAOlg2o",
     status: "En vérification",
-    progress: "46% x4, 44-63%, 63-100"
+    progress: "58%, 44-63%, 63-100 x2"
   },  
   {
     name: "Prismatic",
