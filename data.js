@@ -28,6 +28,16 @@ const LEVELS = [
     ]
   },
   {
+    name: "U L T R A   W I D E",
+    creator: "J27Blaze",
+    verifier: "Xxsvn",
+    id: "84815242",
+    video: "https://youtu.be/3Zm4r-71fgw",
+    minPercent: 52,
+    records: [
+    ]
+  },
+  {
     name: "Crazy",
     creator: "DavJT",
     verifier: "ShadowLuminaty",
