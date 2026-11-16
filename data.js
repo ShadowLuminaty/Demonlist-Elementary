@@ -202,6 +202,17 @@ const LEVELS = [
     ] 
   },
   {
+    name: "Shiver",
+    creator: "SpKale",
+    verifier: "Ayolos73",
+    id: "56210242",
+    video: "https://youtu.be/pTWrZw1r0xY?si=rKWRUq0BF29dRNVs",
+    records: [
+      { player: "Xxsvn", video: "", date: "2026-11-16" },
+      { player: "ShadowLuminaty", video: "", date: "2026-11-16" },
+    ]
+  },
+  {
     name: "Platinum Adventure",
     creator: "Jerry4",
     verifier: "Ayolos73",
