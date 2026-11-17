@@ -225,6 +225,17 @@ const LEVELS = [
       { player: "Xxsvn", video: "https://youtu.be/diulw1_0nPY", date: "2026-11-15" },
     ] 
   },
+  {
+    name: "The Nightmare",
+    creator: "Jax",
+    verifier: "Ayolos",
+    id: "13519",
+    video: "https://youtu.be/mbam7PekNVA",
+    minPercent: 72,
+    records: [
+      { player: "Xxsvn", video: "", date: "2026-11-17" },
+    ]
+  },
 ];
 
 // ============================================================
