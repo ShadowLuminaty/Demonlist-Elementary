@@ -93,18 +93,6 @@ const LEVELS = [
     ] 
   },
   {
-    name: "Sakupen Egg",
-    creator: "Sivlol",
-    verifier: "DraNoX",
-    id: "58002670",
-    video: "https://youtu.be/RhMVHFjzPbk",
-    minPercent: 66,
-    records: [
-      { player: "ShadowLuminaty", video: "", date: "2026-11-12" },
-      { player: "Xxsvn", video: "https://youtu.be/JKr37EAAZ98", date: "2026-11-15" },
-    ]
-  },
-  {
     name: "Verity",
     creator: "Serponge",
     verifier: "Xxsvn",
@@ -122,6 +110,18 @@ const LEVELS = [
     video: "https://youtu.be/zjdg0GbU8K4",
     minPercent: 69,
     records: [
+    ]
+  },
+  {
+    name: "Sakupen Egg",
+    creator: "Sivlol",
+    verifier: "DraNoX",
+    id: "58002670",
+    video: "https://youtu.be/RhMVHFjzPbk",
+    minPercent: 66,
+    records: [
+      { player: "ShadowLuminaty", video: "", date: "2026-11-12" },
+      { player: "Xxsvn", video: "https://youtu.be/JKr37EAAZ98", date: "2026-11-15" },
     ]
   },
   {
