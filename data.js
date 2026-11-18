@@ -234,6 +234,7 @@ const LEVELS = [
     minPercent: 72,
     records: [
       { player: "Xxsvn", video: "", date: "2026-11-17" },
+      { player: "Xxsvn", video: "", date: "2026-11-17" },
     ]
   },
 ];
