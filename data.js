@@ -27,6 +27,16 @@ const LEVELS = [
       { player: "Xxsvn", percent: 97, video: "", date: "" }
     ]
   },
+    {
+    name: "Nilscapes",
+    creator: "L413",
+    verifier: "ShadowLuminaty",
+    id: "126213470",
+    video: "https://youtu.be/GQWyOCZKtmY",
+    minPercent: 63,
+    records: [
+    ]
+  },
   {
     name: "2005landshark",
     creator: "landosharku",
