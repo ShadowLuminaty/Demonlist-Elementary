@@ -243,6 +243,7 @@ const LEVELS = [
     records: [
       { player: "ShadowLuminaty", date: "2026-11-15" },
       { player: "Xxsvn", video: "https://youtu.be/diulw1_0nPY", date: "2026-11-15" },
+      { player: "DraNoX", date: "2026-11-18" },
     ] 
   },
   {
@@ -255,6 +256,7 @@ const LEVELS = [
     records: [
       { player: "Xxsvn", video: "", date: "2026-11-17" },
       { player: "ShadowLuminaty", video: "", date: "2026-11-17" },
+      { player: "DraNoX", date: "2026-11-18" },
     ]
   },
 ];
