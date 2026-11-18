@@ -28,6 +28,16 @@ const LEVELS = [
     ]
   },
   {
+    name: "2005landshark",
+    creator: "landosharku",
+    verifier: "Xxsvn",
+    id: "105281590",
+    video: "https://youtu.be/6BVoOv5yqwI",
+    minPercent: 62,
+    records: [
+    ]
+  },
+  {
     name: "U L T R A   W I D E",
     creator: "J27Blaze",
     verifier: "Xxsvn",
