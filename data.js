@@ -17,6 +17,16 @@ const SITE = {
 // - records  : les autres joueurs qui ont battu le niveau, avec leur preuve vidéo
 const LEVELS = [
   {
+    name: "Lost Love",
+    creator: "TheBlackHell",
+    verifier: "Xxsvn",
+    id: "85933508",
+    video: "https://youtu.be/LDjPvTSE638",
+    minPercent: 72,
+    records: [
+    ]
+  },
+  {
     name: "Acu",
     creator: "neigefeu",
     verifier: "ShadowLuminaty",
