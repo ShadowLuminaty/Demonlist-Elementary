@@ -58,6 +58,16 @@ const LEVELS = [
     ]
   },
   {
+    name: "Poltergeist",
+    creator: "Andromeda GMD",
+    verifier: "ShadowLuminaty",
+    id: "7054561",
+    video: "https://youtu.be/loT9SdM_zuc",
+    minPercent: 65,
+    records: [
+    ]
+  },  
+  {
     name: "U L T R A   W I D E",
     creator: "J27Blaze",
     verifier: "Xxsvn",
