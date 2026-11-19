@@ -207,6 +207,7 @@ const LEVELS = [
     minPercent: 63,
     records: [
       { player: "ShadowLuminaty", video: "", date: "2026-11-12" },
+      { player: "DraNoX", video: "https://youtu.be/T8jLjjnh3WU?si=bUd2mTkHBI5rhXe2", date: "2026-11-19" },
     ]
   },
   {
@@ -231,6 +232,7 @@ const LEVELS = [
     records: [
       { player: "Xxsvn", video: "", date: "2026-11-16" },
       { player: "ShadowLuminaty", video: "", date: "2026-11-16" },
+      { player: "DraNoX", video: "", date: "2026-11-19" },
     ]
   },
   {
