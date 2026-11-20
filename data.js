@@ -281,6 +281,18 @@ const LEVELS = [
       { player: "DraNoX", date: "2026-11-18" },
     ]
   },
+  {
+    name: "THE LIGHTNING ROAD",
+    creator: "Timeless Real",
+    verifier: "Ayolos73",
+    id: "55520",
+    video: "https://youtu.be/YmvQBgRmkfU",
+    minPercent: 75,
+    records: [
+      { player: "Xxsvn", video: "", date: "2026-11-20" },
+      { player: "ShadowLuminaty", video: "", date: "2026-11-20" },
+    ]
+  },  
 ];
 
 // ============================================================
