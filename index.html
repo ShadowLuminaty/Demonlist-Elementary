@@ -289,6 +289,12 @@ function render() {
   $("#tab-verifs").setAttribute("aria-pressed", tab === "verifs");
 }
 
+const CHANGELOG = [
+  // { date: "2026-11-21", level: "Nom du niveau", to: 1 },             // ajouté à la place n°1
+  // { date: "2026-11-21", level: "Nom du niveau", from: 12, to: 2 },   // monté (ou descendu si "to" est plus grand)
+  // { date: "2026-11-21", level: "Nom du niveau", from: 5 },           // retiré de la liste
+];
+
 $("#title").textContent = SITE.title;
 $("#subtitle").textContent = SITE.subtitle;
 document.title = SITE.title;
