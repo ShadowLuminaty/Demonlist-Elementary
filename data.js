@@ -217,6 +217,16 @@ const LEVELS = [
     ]
   },
   {
+    name: "Azure Apex",
+    creator: "Lebi06",
+    verifier: "Xxsvn",
+    id: "87655831",
+    video: "https://youtu.be/JquC-mqugOY",
+    minPercent: 66,
+    records: [
+    ]
+  },
+  {
     name: "Skeletal Shenanigans",
     creator: "YoReid",
     verifier: "Ayolos73",
