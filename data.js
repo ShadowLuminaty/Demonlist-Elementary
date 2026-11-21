@@ -78,6 +78,16 @@ const LEVELS = [
     ]
   },
   {
+    name: "Azure",
+    creator: "eEddy",
+    verifier: "ShadowLuminaty",
+    id: "123141568",
+    video: "  https://youtu.be/2WHDW-i9thQ",
+    minPercent: 65,
+    records: [
+    ]
+  },
+  {
     name: "Crazy",
     creator: "DavJT",
     verifier: "ShadowLuminaty",
