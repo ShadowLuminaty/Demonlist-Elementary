@@ -23,7 +23,7 @@ a{color:var(--link)}
 .deco{position:fixed;left:0;top:0;bottom:0;width:240px;overflow:hidden;pointer-events:none;z-index:0}
 .deco i{position:absolute;display:block}
 
-.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto 0 270px;padding:0 24px 60px 0}
+.wrap{position:relative;z-index:1;max-width:1420px;margin:0 auto 0 270px;padding:0 24px 60px 0}
 header{padding:40px 0 22px}
 h1{font:800 clamp(1.8rem,4.5vw,2.6rem)/1.1 var(--font);margin:0}
 .sub{color:var(--mute);margin:8px 0 0;max-width:60ch;font-size:.95rem}
@@ -59,6 +59,26 @@ summary::-webkit-details-marker{display:none}
 .empty{color:var(--mute);padding:24px 0}
 footer{margin-top:44px;color:var(--mute);font-size:.95rem}
 
+/* Disposition : liste + panneau des changements à droite */
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:28px;align-items:start}
+.side{position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;background:var(--card);border:1px dashed var(--line);padding:18px 18px 14px}
+.side h2{font:700 1.15rem var(--font);margin:0 0 14px}
+.chglist{list-style:none;margin:0;padding:0}
+.chg{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px dashed var(--line);font-size:.95rem;line-height:1.4}
+.chg:first-child{border-top:0;padding-top:0}
+.chg .mute{font-size:.88rem}
+.ic{flex:0 0 30px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--bar);border:1px solid currentColor}
+.ic.add,.ic.up{color:#3ddc97}
+.ic.down{color:#ffa94d}
+.ic.del{color:#ff6b81}
+.lk{color:var(--link)}
+.when{color:var(--mute);font-size:.8rem;margin-top:2px}
+.refreshed{margin:12px 0 0;font-size:.8rem}
+
+@media (max-width:1180px){
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .side{position:static;max-height:none;margin-top:34px}
+}
 @media (max-width:900px){
   .deco{width:70px}
   .wrap{margin-left:86px;padding-right:16px}
@@ -83,6 +103,8 @@ footer{margin-top:44px;color:var(--mute);font-size:.95rem}
     <p class="sub" id="subtitle"></p>
   </header>
 
+  <div class="cols">
+  <div class="main">
   <nav class="tabs">
     <button id="tab-liste" aria-pressed="true">Niveaux</button>
     <button id="tab-joueurs" aria-pressed="false">Joueurs</button>
@@ -98,13 +120,29 @@ footer{margin-top:44px;color:var(--mute);font-size:.95rem}
   <footer>
     Tu as battu un niveau de la liste ? <a id="discord" href="#" target="_blank" rel="noopener">Envoie ta preuve sur le Discord</a>.
   </footer>
+  </div>
+
+  <aside class="side" aria-label="Changements récents">
+    <h2>Changements récents</h2>
+    <ul class="chglist" id="changes"></ul>
+    <p class="mute refreshed" id="refreshed">Mise à jour automatique toutes les minutes</p>
+  </aside>
+  </div>
 </div>
 
 <script src="data.js"></script>
 <script>
 const $ = s => document.querySelector(s);
+
+// Données courantes (rechargées automatiquement quand data.js change)
+let D = {
+  SITE,
+  LEVELS,
+  UPCOMING: typeof UPCOMING !== "undefined" ? UPCOMING : [],
+  CHANGELOG: typeof CHANGELOG !== "undefined" ? CHANGELOG : []
+};
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const pts = rank => Math.round(SITE.maxPoints * Math.pow(SITE.decay, rank - 1) * 100) / 100;
+const pts = rank => Math.round(D.SITE.maxPoints * Math.pow(D.SITE.decay, rank - 1) * 100) / 100;
 const ytId = u => { const m = /(?:youtu\.be\/|v=|embed\/)([\w-]{11})/.exec(u || ""); return m ? m[1] : null; };
 const safeUrl = u => /^https?:\/\//.test(u || "") ? u : "";
 const link = (u, label) => safeUrl(u) ? `<a href="${esc(u)}" target="_blank" rel="noopener">${label}</a>` : "";
@@ -133,14 +171,14 @@ const hashTabs = { joueurs: "joueurs", verifications: "verifs", upcoming: "verif
 let tab = hashTabs[h] || "liste";
 
 // Part des points gagnée avec un « progrès » (record partiel). Modifiable dans data.js : SITE.partialShare
-const PARTIAL = (typeof SITE.partialShare === "number") ? SITE.partialShare : 0.1;
+let PARTIAL = (typeof D.SITE.partialShare === "number") ? D.SITE.partialShare : 0.1;
 const isFull = r => r.percent == null || r.percent >= 100;
 
 // Calcule le classement des joueurs à partir des niveaux
 function computePlayers() {
   const map = {};
   const get = n => map[n] || (map[n] = { name: n, points: 0, verified: [], beaten: [], progress: [] });
-  LEVELS.forEach((l, i) => {
+  D.LEVELS.forEach((l, i) => {
     const rank = i + 1, p = pts(rank);
     if (l.verifier) { const pl = get(l.verifier); pl.points += p; pl.verified.push({ l, rank, p }); }
     // meilleur record de chaque joueur sur ce niveau (le 100 % passe avant un progrès)
@@ -267,15 +305,86 @@ function upcomingHTML(u) {
   </details>`;
 }
 
+// ---------- Panneau « Changements récents » ----------
+const ICONS = {
+  add:  { cls: "add",  svg: '<path d="M10 5h4v5h5v4h-5v5h-4v-5H5v-4h5z"/>' },
+  up:   { cls: "up",   svg: '<path d="M12 5l-7 8h4.5v6h5v-6H19z"/>' },
+  down: { cls: "down", svg: '<path d="M12 19l7-8h-4.5V5h-5v6H5z"/>' },
+  del:  { cls: "del",  svg: '<path d="M5 10h14v4H5z"/>' }
+};
+
+function changeHTML(c) {
+  const names = D.LEVELS.map(l => l.name);
+  const idx = names.indexOf(c.level);
+  // « au-dessus de » = le niveau juste après dans la liste ; « en dessous de » = le niveau juste avant
+  const above = c.above ?? (idx >= 0 && idx < names.length - 1 ? names[idx + 1] : null);
+  const below = c.below ?? (idx > 0 ? names[idx - 1] : null);
+  const hasFrom = c.from != null, hasTo = c.to != null;
+  let kind, what;
+  if (!hasFrom && hasTo) { kind = "add"; what = `placé à #${esc(c.to)}`; }
+  else if (hasFrom && !hasTo) { kind = "del"; what = `retiré de la liste (était #${esc(c.from)})`; }
+  else { kind = c.to < c.from ? "up" : "down"; what = `#${esc(c.from)} → #${esc(c.to)}`; }
+  const near = [];
+  if (above) near.push(`au-dessus de <span class="lk">${esc(above)}</span>`);
+  if (below) near.push(`en dessous de <span class="lk">${esc(below)}</span>`);
+  const date = /^\d{4}-\d{2}-\d{2}$/.test(c.date || "") ? c.date.split("-").reverse().join("/") : esc(c.date || "");
+  const ic = ICONS[kind];
+  return `<li class="chg">
+    <span class="ic ${ic.cls}" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">${ic.svg}</svg></span>
+    <div><strong>${esc(c.level)}</strong> <span class="mute">${what}${near.length ? ", " + near.join(", ") : ""}</span>
+    ${date ? `<div class="when">${date}</div>` : ""}</div>
+  </li>`;
+}
+
+function renderChanges() {
+  const list = D.CHANGELOG.map((c, i) => [c, i])
+    .sort((a, b) => String(b[0].date || "").localeCompare(String(a[0].date || "")) || a[1] - b[1])
+    .map(([c]) => changeHTML(c)).join("");
+  $("#changes").innerHTML = list || `<li class="mute">Aucun changement pour le moment.</li>`;
+}
+
+// ---------- Mise à jour automatique ----------
+function applySite() {
+  $("#title").textContent = D.SITE.title;
+  $("#subtitle").textContent = D.SITE.subtitle;
+  document.title = D.SITE.title;
+  $("#discord").href = safeUrl(D.SITE.discord) || "#";
+}
+
+function applyData(next) {
+  D = next;
+  PARTIAL = (typeof D.SITE.partialShare === "number") ? D.SITE.partialShare : 0.1;
+  applySite(); render(); renderChanges();
+}
+
+function stamp() {
+  $("#refreshed").textContent = "Vérifié à " + new Date().toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+}
+
+let lastText = null;
+async function refresh() {
+  if (document.visibilityState === "hidden") return;
+  try {
+    const res = await fetch("data.js?t=" + Date.now(), { cache: "no-store" });
+    if (!res.ok) return;
+    const text = await res.text();
+    stamp();
+    if (text === lastText) return;
+    const next = new Function(text + "\n;return { SITE, LEVELS, UPCOMING: typeof UPCOMING !== 'undefined' ? UPCOMING : [], CHANGELOG: typeof CHANGELOG !== 'undefined' ? CHANGELOG : [] };")();
+    lastText = text;
+    applyData(next);
+  } catch (e) { /* hors ligne, ouverture en local ou erreur dans data.js : on garde les données actuelles */ }
+}
+
 function render() {
   const q = $("#search").value.trim().toLowerCase();
   let html = "";
   if (tab === "liste") {
-    html = LEVELS.map((l, i) => [l, i])
+    html = D.LEVELS.map((l, i) => [l, i])
       .filter(([l]) => !q || [l.name, l.creator, l.verifier].some(s => String(s).toLowerCase().includes(q)))
       .map(([l, i]) => levelHTML(l, i)).join("");
   } else if (tab === "verifs") {
-    const up = typeof UPCOMING !== "undefined" ? UPCOMING : [];
+    const up = D.UPCOMING;
     html = up.filter(u => !q || [u.name, u.creator, u.verifier].some(s => String(s).toLowerCase().includes(q)))
       .map(upcomingHTML).join("");
   } else {
@@ -289,21 +398,15 @@ function render() {
   $("#tab-verifs").setAttribute("aria-pressed", tab === "verifs");
 }
 
-const CHANGELOG = [
-  // { date: "2026-11-21", level: "Nom du niveau", to: 1 },             // ajouté à la place n°1
-  // { date: "2026-11-21", level: "Nom du niveau", from: 12, to: 2 },   // monté (ou descendu si "to" est plus grand)
-  // { date: "2026-11-21", level: "Nom du niveau", from: 5 },           // retiré de la liste
-];
-
-$("#title").textContent = SITE.title;
-$("#subtitle").textContent = SITE.subtitle;
-document.title = SITE.title;
-$("#discord").href = safeUrl(SITE.discord) || "#";
+applySite();
 $("#tab-liste").onclick = () => { tab = "liste"; location.hash = "liste"; render(); };
 $("#tab-joueurs").onclick = () => { tab = "joueurs"; location.hash = "joueurs"; render(); };
 $("#tab-verifs").onclick = () => { tab = "verifs"; location.hash = "verifications"; render(); };
 $("#search").oninput = render;
 render();
+renderChanges();
+setInterval(refresh, 60000);
+refresh();
 </script>
 </body>
 </html>
