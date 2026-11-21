@@ -367,22 +367,8 @@ const UPCOMING = [
   },
 ];
 
-// ============================================================
-//  UPCOMING TOP 1 (niveaux qui pourraient devenir le nouveau n°1)
-//  Mêmes champs que les vérifications. N’influence pas le classement.
-//  Pour ajouter un niveau : copie le modèle ci-dessous à l’intérieur
-//  des crochets [ ] et enlève les // au début de chaque ligne.
-//  Mets une virgule entre deux niveaux (pas après le dernier si tu veux être propre).
-// ============================================================
-const UPCOMING_TOP1 = [
-  // {
-  //   name: "Nom du niveau",
-  //   creator: "Créateur",
-  //   verifier: "Vérificateur",
-  //   id: "12345678",
-  //   image: "",
-  //   video: "",
-  //   status: "En vérification",
-  //   progress: "50"
-  // }
+const CHANGELOG = [
+  // { date: "2026-11-21", level: "Nom du niveau", to: 1 },             // ajouté à la place n°1
+  // { date: "2026-11-21", level: "Nom du niveau", from: 12, to: 2 },   // monté (ou descendu si "to" est plus grand)
+  // { date: "2026-11-21", level: "Nom du niveau", from: 5 },           // retiré de la liste
 ];
