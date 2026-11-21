@@ -58,6 +58,16 @@ const LEVELS = [
     ]
   },
   {
+    name: "Grief Processing",
+    creator: "VerdinGD",
+    verifier: "ShadowLuminaty",
+    id: "149583267",
+    video: "https://youtu.be/Hqd7jR7P59o",
+    minPercent: 66,
+    records: [
+    ]
+  },  
+  {
     name: "Poltergeist",
     creator: "Andromeda GMD",
     verifier: "ShadowLuminaty",
@@ -374,4 +384,5 @@ const CHANGELOG = [
   { date: "2026-11-21", level: "Azure", to: 7 },
   { date: "2026-11-21", level: "Azure Apex", to: 20 },
   { date: "2026-11-21", level: "Skeletal Shenanigans", from: 19, to: 21 },
+  { date: "2026-11-21", level: "Grief Processing", to: 5 },
 ];
