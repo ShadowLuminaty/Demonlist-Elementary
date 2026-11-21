@@ -87,7 +87,6 @@ footer{margin-top:44px;color:var(--mute);font-size:.95rem}
     <button id="tab-liste" aria-pressed="true">Niveaux</button>
     <button id="tab-joueurs" aria-pressed="false">Joueurs</button>
     <button id="tab-verifs" aria-pressed="false">Vérifications</button>
-    <button id="tab-top1" aria-pressed="false">Upcoming top 1</button>
   </nav>
 
   <div class="search">
@@ -130,7 +129,7 @@ const ordinal = n => { const s = ["th", "st", "nd", "rd"], v = n % 100; return n
 })();
 
 const h = location.hash.slice(1);
-const hashTabs = { joueurs: "joueurs", verifications: "verifs", upcoming: "verifs", top1: "top1" };
+const hashTabs = { joueurs: "joueurs", verifications: "verifs", upcoming: "verifs" };
 let tab = hashTabs[h] || "liste";
 
 // Part des points gagnée avec un « progrès » (record partiel). Modifiable dans data.js : SITE.partialShare
@@ -275,8 +274,8 @@ function render() {
     html = LEVELS.map((l, i) => [l, i])
       .filter(([l]) => !q || [l.name, l.creator, l.verifier].some(s => String(s).toLowerCase().includes(q)))
       .map(([l, i]) => levelHTML(l, i)).join("");
-  } else if (tab === "verifs" || tab === "top1") {
-    const up = tab === "top1" ? (typeof UPCOMING_TOP1 !== "undefined" ? UPCOMING_TOP1 : []) : (typeof UPCOMING !== "undefined" ? UPCOMING : []);
+  } else if (tab === "verifs") {
+    const up = typeof UPCOMING !== "undefined" ? UPCOMING : [];
     html = up.filter(u => !q || [u.name, u.creator, u.verifier].some(s => String(s).toLowerCase().includes(q)))
       .map(upcomingHTML).join("");
   } else {
@@ -284,11 +283,10 @@ function render() {
       .filter(([p]) => !q || p.name.toLowerCase().includes(q))
       .map(([p, i]) => playerHTML(p, i)).join("");
   }
-  $("#out").innerHTML = html || `<p class="empty">${tab === "top1" && !q ? "Aucun niveau pour le moment." : "Aucun résultat."}</p>`;
+  $("#out").innerHTML = html || `<p class="empty">Aucun résultat.</p>`;
   $("#tab-liste").setAttribute("aria-pressed", tab === "liste");
   $("#tab-joueurs").setAttribute("aria-pressed", tab === "joueurs");
   $("#tab-verifs").setAttribute("aria-pressed", tab === "verifs");
-  $("#tab-top1").setAttribute("aria-pressed", tab === "top1");
 }
 
 $("#title").textContent = SITE.title;
@@ -298,7 +296,6 @@ $("#discord").href = safeUrl(SITE.discord) || "#";
 $("#tab-liste").onclick = () => { tab = "liste"; location.hash = "liste"; render(); };
 $("#tab-joueurs").onclick = () => { tab = "joueurs"; location.hash = "joueurs"; render(); };
 $("#tab-verifs").onclick = () => { tab = "verifs"; location.hash = "verifications"; render(); };
-$("#tab-top1").onclick = () => { tab = "top1"; location.hash = "top1"; render(); };
 $("#search").oninput = render;
 render();
 </script>
