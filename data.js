@@ -76,7 +76,17 @@ const LEVELS = [
     minPercent: 65,
     records: [
     ]
-  },  
+  }, 
+  {
+    name: "Fairydust",
+    creator: "mkComic",
+    verifier: "ShadowLuminaty",
+    id: "84815242",
+    video: "https://youtu.be/_tiucA8i1mY",
+    minPercent: 66,
+    records: [
+    ]
+  }, 
   {
     name: "U L T R A   W I D E",
     creator: "J27Blaze",
