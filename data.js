@@ -366,25 +366,15 @@ const UPCOMING = [
     progress: "50%, 50-100",
   },
   {
-    name: "Grief Processing",
-    creator: "VerdinGD",
+    name: "fishbass",
+    creator: "fishbass",
     verifier: "ShadowLuminaty",
-    id: "149583267",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSta_0lzKGemT55UUWNs2BCitemjmGNZgm2yW5_o2iAjg&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
-    video: "https://www.youtube.com/watch?v=5scnwAOlg2o",
+    id: "86565813",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGK-ckPfdJbx8tYt4y7sBffCTqd789ym8-seD17dKjiA&s=10",
+    video: "https://www.youtube.com/watch?v=MYmLcPYU9Uk",
     status: "En vérification",
-    progress: "96%, 55-100 x2"
+    progress: "46%, 48-100",
   },  
-  {
-    name: "Prismatic",
-    creator: "CatGeo",
-    verifier: "ShadowLuminaty",
-    id: "107341811",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkbIGzKUkyxPqnnJzIZN8BGYCc6VoUcRxto6mZIBaq5w&s=10",   // nom du fichier image (ex. "acu.png") ou lien https ; "" = vignette de couleur
-    video: "https://youtu.be/iYOEr5AiBV8",
-    status: "Vérification à venir",
-    progress: "19%, 78-88"
-  },
 ];
 
 const CHANGELOG = [
