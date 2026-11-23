@@ -58,6 +58,16 @@ const LEVELS = [
     ]
   },
   {
+    name: "fishbass",
+    creator: "fishbass",
+    verifier: "ShadowLuminaty",
+    id: "86565813",
+    video: "https://youtu.be/8fcUwSYHYuQ",
+    minPercent: 68,
+    records: [
+    ]
+  },
+  {
     name: "Grief Processing",
     creator: "VerdinGD",
     verifier: "ShadowLuminaty",
@@ -381,6 +391,7 @@ const CHANGELOG = [
   // { date: "2026-11-21", level: "Nom du niveau", to: 1 },             // ajouté à la place n°1
   // { date: "2026-11-21", level: "Nom du niveau", from: 12, to: 2 },   // monté (ou descendu si "to" est plus grand)
   // { date: "2026-11-21", level: "Nom du niveau", from: 5 },           // retiré de la liste
+  { date: "2026-11-23", level: "fishbass", to: 5 },
   { date: "2026-11-22", level: "Fairydust", to: 7 },
   { date: "2026-11-21", level: "Grief Processing", to: 5 },
   { date: "2026-11-21", level: "Skeletal Shenanigans", from: 19, to: 21 },
