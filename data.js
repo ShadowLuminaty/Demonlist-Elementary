@@ -375,6 +375,16 @@ const UPCOMING = [
     status: "En vérification",
     progress: "50%, 50-100",
   }, 
+  {
+    name: "b",
+    creator: "motleyorc",
+    verifier: "Ayolos73",
+    id: "34085027",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqSFQojLKGb5W75LBx0DsY4HcN-VSsFd5CWAAdWGMA8A&s=10",
+    video: "https://www.youtube.com/watch?v=sLf9Vc02i9k",
+    status: "En vérification",
+    progress: "30%, 22-45%, 70-100",
+  }, 
 ];
 
 const CHANGELOG = [
