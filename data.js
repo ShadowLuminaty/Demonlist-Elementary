@@ -374,17 +374,7 @@ const UPCOMING = [
     video: "https://www.youtube.com/watch?v=sLf9Vc02i9k",
     status: "En vérification",
     progress: "50%, 50-100",
-  },
-  {
-    name: "fishbass",
-    creator: "fishbass",
-    verifier: "ShadowLuminaty",
-    id: "86565813",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGK-ckPfdJbx8tYt4y7sBffCTqd789ym8-seD17dKjiA&s=10",
-    video: "https://www.youtube.com/watch?v=MYmLcPYU9Uk",
-    status: "En vérification",
-    progress: "46%, 48-100",
-  },  
+  }, 
 ];
 
 const CHANGELOG = [
