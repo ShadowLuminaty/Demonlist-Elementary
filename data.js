@@ -270,8 +270,18 @@ const LEVELS = [
       { player: "Xxsvn", video: "", date: "2026-11-15" },
       { player: "ShadowLuminaty", video: "", date: "2026-11-15" },
     ]
-  },  
-    {
+  },
+  {
+    name: "Netrunner",
+    creator: "Optation",
+    verifier: "Xxsvn",
+    id: "102566420",
+    video: "https://youtu.be/4HFJ4CHoQpk",
+    minPercent: 67,
+    records: [
+    ]
+  },
+  {
     name: "White Space",
     creator: "Xender Game",
     verifier: "Xxsvn",
