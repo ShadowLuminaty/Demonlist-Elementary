@@ -65,6 +65,7 @@ const LEVELS = [
     video: "https://youtu.be/8fcUwSYHYuQ",
     minPercent: 68,
     records: [
+      { player: "Xxsvn", percent: 73, video: "", date: "" }
     ]
   },
   {
