@@ -383,7 +383,7 @@ const UPCOMING = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqSFQojLKGb5W75LBx0DsY4HcN-VSsFd5CWAAdWGMA8A&s=10",
     video: "https://www.youtube.com/watch?v=ohKPqGxotao",
     status: "En vérification",
-    progress: "30%, 22-45%, 70-100",
+    progress: "46%, 45-100",
   }, 
 ];
 
