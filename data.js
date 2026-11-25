@@ -295,6 +295,16 @@ const LEVELS = [
     ]
   },
   {
+    name: "Netrunner",
+    creator: "ivyteal",
+    verifier: "Xxsvn",
+    id: "76853359",
+    video: "https://youtu.be/L8HSiG2qysI",
+    minPercent: 65,
+    records: [
+    ]
+  },
+  {
     name: "Oxydize",
     creator: "The Goola",
     verifier: "Xxsvn",
