@@ -426,6 +426,7 @@ const CHANGELOG = [
   // { date: "2026-11-21", level: "Nom du niveau", to: 1 },             // ajouté à la place n°1
   // { date: "2026-11-21", level: "Nom du niveau", from: 12, to: 2 },   // monté (ou descendu si "to" est plus grand)
   // { date: "2026-11-21", level: "Nom du niveau", from: 5 },           // retiré de la liste
+  { date: "2026-11-24", level: "B", to:  21},  
   { date: "2026-11-25", level: "Netrunner", to: 26, above: "White Space", below: "Netrunner" },
   { date: "2026-11-24", level: "Netrunner", to: 25 },
   { date: "2026-11-23", level: "fishbass", to: 5 },
