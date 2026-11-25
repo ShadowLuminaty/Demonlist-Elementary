@@ -214,7 +214,7 @@ const LEVELS = [
     minPercent: 65,
     video: "https://youtu.be/qDAl3UY2ZIg",
     records: [
-      { player: "ShadowLuminaty", percent: "68", video: "", date: "2026-11-09" }
+      { player: "ShadowLuminaty", percent: 68, video: "", date: "2026-11-09" }
     ]
   },
   {
@@ -321,7 +321,7 @@ const LEVELS = [
     verifier: "Ayolos73",
     id: "56210242",
     video: "https://youtu.be/pTWrZw1r0xY?si=rKWRUq0BF29dRNVs",
-    minPercent: "56%",
+    minPercent: 56,
     records: [
       { player: "Xxsvn", video: "", date: "2026-11-16" },
       { player: "ShadowLuminaty", video: "", date: "2026-11-16" },
@@ -413,8 +413,8 @@ const CHANGELOG = [
   // { date: "2026-11-21", level: "Nom du niveau", to: 1 },             // ajouté à la place n°1
   // { date: "2026-11-21", level: "Nom du niveau", from: 12, to: 2 },   // monté (ou descendu si "to" est plus grand)
   // { date: "2026-11-21", level: "Nom du niveau", from: 5 },           // retiré de la liste
-  { date: "2026-11-25", level: "Netrunner", to: 26 },
-  { date: "2026-11-24", level: "Netrunner", to: 25 },
+  { date: "2026-11-25", level: "Netrunner (ivyteal)", to: 26 },
+  { date: "2026-11-24", level: "Netrunner (Optation)", to: 25 },
   { date: "2026-11-23", level: "fishbass", to: 5 },
   { date: "2026-11-22", level: "Fairydust", to: 7 },
   { date: "2026-11-21", level: "Grief Processing", to: 5 },
