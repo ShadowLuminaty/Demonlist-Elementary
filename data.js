@@ -229,6 +229,19 @@ const LEVELS = [
     ] 
   },
   {
+    name: "B",
+    creator: "motleyorc",
+    verifier: "Ayolos73",
+    id: "34085027",
+    video: "https://youtu.be/G02VM9Po50I",
+    minPercent: 72,
+    records: [
+     { player: "Xxsvn", video: "", date: "2026-11-25" },
+     { player: "ShadowLuminaty", video: "", date: "2026-11-25" },
+     { player: "DraNoX", video: "", date: "2026-11-25" },
+    ]
+  }, 
+  {
     name: "Taimiri",
     creator: "Jayuff",
     verifier: "Xxsvn",
@@ -396,17 +409,17 @@ const UPCOMING = [
     video: "https://www.youtube.com/watch?v=sLf9Vc02i9k",
     status: "En vérification",
     progress: "50%, 50-100",
-  }, 
+  },
   {
-    name: "b",
-    creator: "motleyorc",
+    name: "Take my Hand",
+    creator: "LewinGD",
     verifier: "Ayolos73",
-    id: "34085027",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqSFQojLKGb5W75LBx0DsY4HcN-VSsFd5CWAAdWGMA8A&s=10",
-    video: "https://www.youtube.com/watch?v=ohKPqGxotao",
+    id: "146273838",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQteAJITATpxQppUEPwXWhGxMWTq0x_JpFlk1-W12K5oA&s=10",
+    video: "https://www.youtube.com/watch?v=h_8U2W0pAJs",
     status: "En vérification",
-    progress: "46%, 45-100",
-  }, 
+    progress: "52"
+  },
 ];
 
 const CHANGELOG = [
