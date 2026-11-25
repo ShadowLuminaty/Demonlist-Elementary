@@ -309,7 +309,7 @@ const LEVELS = [
     creator: "The Goola",
     verifier: "Xxsvn",
     id: "96978035",
-    video: "https://youtu.be/L8HSiG2qysI",
+    video: "https://youtu.be/TtBadoZdhOQ",
     minPercent: 67,
     records: [
     ]
