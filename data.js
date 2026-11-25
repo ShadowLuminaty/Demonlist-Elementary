@@ -305,6 +305,16 @@ const LEVELS = [
     ]
   },
   {
+    name: "Oxydize",
+    creator: "The Goola",
+    verifier: "Xxsvn",
+    id: "96978035",
+    video: "https://youtu.be/L8HSiG2qysI",
+    minPercent: 67,
+    records: [
+    ]
+  },
+  {
     name: "White Space",
     creator: "Xender Game",
     verifier: "Xxsvn",
@@ -426,6 +436,7 @@ const CHANGELOG = [
   // { date: "2026-11-21", level: "Nom du niveau", to: 1 },             // ajouté à la place n°1
   // { date: "2026-11-21", level: "Nom du niveau", from: 12, to: 2 },   // monté (ou descendu si "to" est plus grand)
   // { date: "2026-11-21", level: "Nom du niveau", from: 5 },           // retiré de la liste
+  { date: "2026-11-25", level: "Oxidize", to:  28},
   { date: "2026-11-25", level: "B", to:  21},  
   { date: "2026-11-25", level: "Netrunner", to: 26, above: "White Space", below: "Netrunner" },
   { date: "2026-11-24", level: "Netrunner", to: 25 },
