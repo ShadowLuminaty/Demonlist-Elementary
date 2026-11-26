@@ -442,6 +442,16 @@ const UPCOMING = [
     status: "En vérification",
     progress: "52"
   },
+  {
+    name: "MikuMikuMikuMiku",
+    creator: "OddMod",
+    verifier: "ShadowLuminaty",
+    id: "82824219",
+    image: "https://i.ytimg.com/vi/VQOJ_SZ0Nto/maxresdefault.jpg",
+    video: "https://www.youtube.com/watch?v=VQOJ_SZ0Nto",
+    status: "En vérification",
+    progress: "49, 51-100"
+  },  
 ];
 
 const CHANGELOG = [
