@@ -388,6 +388,7 @@ const LEVELS = [
     records: [
       { player: "Xxsvn", video: "", date: "2026-11-20" },
       { player: "ShadowLuminaty", video: "", date: "2026-11-20" },
+      { player: "DraNoX", date: "2026-11-26" },
     ]
   },  
 ];
