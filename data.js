@@ -249,6 +249,7 @@ const LEVELS = [
     minPercent: 66,
     video: "https://www.youtube.com/watch?v=PQ2YxfaZDrc",
     records: [
+      { player: "DraNoX", video: "", date: "2026-11-26" },
     ]
   },
   {
