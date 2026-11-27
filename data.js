@@ -161,7 +161,7 @@ const LEVELS = [
     video: "https://youtu.be/Ggahg0ZgPbQ",
     minPercent: 70,
     records: [
-      { player: "Xxsvn", video: "", date: "2026-11-27" },
+      { player: "Xxsvn", video: "", date: "2026-11-28" },
     ] 
   },
   {
@@ -502,7 +502,7 @@ const CHANGELOG = [
   // { date: "2026-11-21", level: "Nom du niveau", to: 1 },             // ajouté à la place n°1
   // { date: "2026-11-21", level: "Nom du niveau", from: 12, to: 2 },   // monté (ou descendu si "to" est plus grand)
   // { date: "2026-11-21", level: "Nom du niveau", from: 5 },           // retiré de la liste
-  { date: "2026-11-27", level: "Mechanical RootS", to:  14, above: "Gy", below: "white women" },  
+  { date: "2026-11-28", level: "Mechanical RootS", to:  14, above: "Gy", below: "white women" },  
   { date: "2026-11-27", level: "Kingdom", to:  27, above: "Kickback", below: "Netrunner" },
   { date: "2026-11-27", level: "Kickback", to:  27, above: "Netrunner", below: "Netrunner" },
   { date: "2026-11-26", level: "Luminox Core", to:  28, above: "Oxidize", below: "Netrunner" },
