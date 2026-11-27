@@ -317,7 +317,7 @@ const LEVELS = [
     ]
   },
   {
-    name: "Oxydize",
+    name: "Oxidize",
     creator: "The Goola",
     verifier: "Xxsvn",
     id: "96978035",
