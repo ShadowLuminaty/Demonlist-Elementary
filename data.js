@@ -293,7 +293,6 @@ const LEVELS = [
     video: "https://youtu.be/4HFJ4CHoQpk",
     minPercent: 67,
     records: [
-      { player: "Xxsvn", video: "", date: "2026-11-27" },
     ]
   },
   {
@@ -304,6 +303,7 @@ const LEVELS = [
     video: "https://youtu.be/NVN-KDZ9kJI",
     minPercent: 64,
     records: [
+      { player: "Xxsvn", video: "", date: "2026-11-27" },
     ]
   },
   {
