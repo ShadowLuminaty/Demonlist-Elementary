@@ -451,8 +451,18 @@ const UPCOMING = [
     image: "https://i.ytimg.com/vi/VQOJ_SZ0Nto/maxresdefault.jpg",
     video: "https://www.youtube.com/watch?v=VQOJ_SZ0Nto",
     status: "En vérification",
-    progress: "49, 51-100"
-  },  
+    progress: "53, 51-100"
+  }, 
+  {
+    name: "Mariana",
+    creator: "bv57",
+    verifier: "ShadowLuminaty",
+    id: "144448963",
+    image: "https://i.ytimg.com/vi/YYJkU_rd6yQ/maxresdefault.jpg",
+    video: "https://www.youtube.com/watch?v=ol-8e55kESM",
+    status: "En vérification",
+    progress: "10, 75-100"
+  }, 
 ];
 
 const CHANGELOG = [
