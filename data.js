@@ -154,6 +154,17 @@ const LEVELS = [
     ] 
   },
   {
+    name: "Mechanical RootS",
+    creator: "stanstanmansan",
+    verifier: "ShadowLuminaty",
+    id: "85143676",
+    video: "https://youtu.be/Ggahg0ZgPbQ",
+    minPercent: 70,
+    records: [
+      { player: "Xxsvn", video: "", date: "2026-11-27" },
+    ] 
+  },
+  {
     name: "Gy",
     creator: "An Gyung",
     verifier: "Xxsvn",
