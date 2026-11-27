@@ -296,6 +296,16 @@ const LEVELS = [
     ]
   },
   {
+    name: "Kickback",
+    creator: "Wolvyy",
+    verifier: "Xxsvn",
+    id: "145755012",
+    video: "https://youtu.be/QcirYYbDYMo",
+    minPercent: 70,
+    records: [
+    ]
+  },
+  {
     name: "Netrunner",
     creator: "ivyteal",
     verifier: "Xxsvn",
@@ -470,6 +480,7 @@ const CHANGELOG = [
   // { date: "2026-11-21", level: "Nom du niveau", to: 1 },             // ajouté à la place n°1
   // { date: "2026-11-21", level: "Nom du niveau", from: 12, to: 2 },   // monté (ou descendu si "to" est plus grand)
   // { date: "2026-11-21", level: "Nom du niveau", from: 5 },           // retiré de la liste
+  { date: "2026-11-27", level: "Kickback", to:  27, above: "Netrunner", below: "Netrunner" },
   { date: "2026-11-26", level: "Luminox Core", to:  28, above: "Oxidize", below: "Netrunner" },
   { date: "2026-11-25", level: "Oxidize", to:  28, above: "White Space", below: "Netrunner" },
   { date: "2026-11-25", level: "B", to:  21},  
