@@ -324,6 +324,7 @@ const LEVELS = [
     video: "https://youtu.be/TtBadoZdhOQ",
     minPercent: 67,
     records: [
+      { player: "ShadowLuminaty", video: "", date: "2026-11-27" },
     ]
   },
   {
