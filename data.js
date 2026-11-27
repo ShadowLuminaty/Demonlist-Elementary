@@ -461,7 +461,7 @@ const UPCOMING = [
     image: "https://i.ytimg.com/vi/YYJkU_rd6yQ/maxresdefault.jpg",
     video: "https://www.youtube.com/watch?v=ol-8e55kESM",
     status: "En vérification",
-    progress: "10, 75-100"
+    progress: "12, 29-44, 75-100"
   }, 
 ];
 
