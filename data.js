@@ -404,6 +404,16 @@ const LEVELS = [
     ] 
   },
   {
+    name: "Eyes in the Water",
+    creator: "BowtieGD",
+    verifier: "DraNoX",
+    id: "72687502",
+    video: "https://youtu.be/xLMkfAVHMgU",
+    minPercent: 44,
+    records: [
+    ] 
+  },  
+  {
     name: "Shiver",
     creator: "SpKale",
     verifier: "Ayolos73",
