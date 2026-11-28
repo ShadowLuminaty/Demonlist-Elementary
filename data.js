@@ -394,6 +394,16 @@ const LEVELS = [
     ] 
   },
   {
+    name: "Limiless Space",
+    creator: "YukiMasterGD",
+    verifier: "Xxsvn",
+    id: "91408117",
+    video: "https://youtu.be/nYqB_7UBAPk",
+    minPercent: 54,
+    records: [
+    ] 
+  },
+  {
     name: "Shiver",
     creator: "SpKale",
     verifier: "Ayolos73",
@@ -512,6 +522,7 @@ const CHANGELOG = [
   // { date: "2026-11-21", level: "Nom du niveau", to: 1 },             // ajouté à la place n°1
   // { date: "2026-11-21", level: "Nom du niveau", from: 12, to: 2 },   // monté (ou descendu si "to" est plus grand)
   // { date: "2026-11-21", level: "Nom du niveau", from: 5 },           // retiré de la liste
+  { date: "2026-11-28", level: "Limitless Space", to:  36, above: "Shiver", below: "Nebula" },
   { date: "2026-11-28", level: "Recurrent", to:  25, above: "Azure Apex", below: "Neuf Cercles" }, 
   { date: "2026-11-28", level: "Mechanical RootS", to:  14, above: "Gy", below: "white women" },  
   { date: "2026-11-27", level: "Kingdom", to:  27, above: "Kickback", below: "Netrunner" },
